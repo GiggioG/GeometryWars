@@ -10,6 +10,8 @@ static string IMG_FOLDER = "img\\";
 static string CONFIG_FOLDER = "config\\";
 static string SOUND_FOLDER = "sound\\";
 
+const float pi = M_PI;
+
 struct int2
 {
 	int x;
@@ -21,7 +23,7 @@ struct int2
 		y = 0;
 	}
 
-	void set(int2 b) 
+	void set(int2 b)
 	{
 		x = b.x;
 		y = b.y;
@@ -84,7 +86,7 @@ struct float2
 {
 	//!!!IMPORTANT!!!
 	float x;
-	float y; 
+	float y;
 
 	void reset()
 	{
@@ -151,10 +153,13 @@ struct float2
 	}
 };
 
-struct Drawable 
+struct Drawable
 {
-	SDL_Texture* texture;
-	SDL_Rect rect; //dstRect;
+	SDL_Texture* texture = nullptr;
+	SDL_Rect drect = { 0 }; /// The rect where we draw
+	SDL_Rect srect = { 0,0,1920,1080 }; /// The part of the sprite we draw
+	SDL_RendererFlip flip = SDL_FLIP_NONE;
+	int angle = 0;
 };
 
 struct DrawableSrcRect : Drawable
@@ -162,7 +167,7 @@ struct DrawableSrcRect : Drawable
 	SDL_Rect srcRect;
 };
 
-enum SOUND 
+enum SOUND
 {
 	BACKGORUND_MUSIC
 };

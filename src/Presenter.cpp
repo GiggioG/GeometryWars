@@ -14,7 +14,7 @@ void Presenter::init()
 	m_SCREEN_HEIGHT = 1080;
 
 	SDL_Init(SDL_INIT_EVERYTHING);
-	
+
 	m_mainWindow = SDL_CreateWindow("SDL_Template",
 		SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, m_SCREEN_WIDTH, m_SCREEN_HEIGHT, 0);
 
@@ -40,21 +40,10 @@ void Presenter::drawObject(SDL_Texture* texture)
 	SDL_RenderCopy(m_mainRenderer, texture, NULL, NULL);
 }
 
-void Presenter::drawObject(Drawable& drawable){
-	SDL_RenderCopy(m_mainRenderer, drawable.texture, NULL, &drawable.rect);
-}
-
-void Presenter::drawObject(Drawable& drawable, float angle, SDL_Point* pivot){
-	double angleDegrees = -angle * (180 / M_PI);
-	SDL_RenderCopyEx(m_mainRenderer, drawable.texture, NULL, &drawable.rect, angleDegrees, pivot, SDL_FLIP_NONE);
-}
-
-void Presenter::drawObject(DrawableSrcRect& drawableSrcRect)
+void Presenter::drawObject(Drawable& drawable)
 {
-	SDL_RenderCopy(m_mainRenderer, drawableSrcRect.texture, &drawableSrcRect.rect, &drawableSrcRect.srcRect);
+	SDL_RenderCopyEx(m_mainRenderer, drawable.texture, &drawable.srect, &drawable.drect, drawable.angle, NULL, drawable.flip);
 }
-
-
 
 void Presenter::improveRenderer()
 {
