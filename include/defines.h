@@ -159,6 +159,7 @@ struct Drawable
 	SDL_Rect drect = { 0 }; /// The rect where we draw
 	SDL_Rect srect = { 0,0,1920,1080 }; /// The part of the sprite we draw
 	SDL_RendererFlip flip = SDL_FLIP_NONE;
+	SDL_Point pivot = {0,0};
 	int angle = 0;
 };
 

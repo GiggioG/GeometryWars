@@ -12,20 +12,21 @@ void Player::init() {
 }
 
 void Player::update() {
-	//coord.x += cos(angle) * speed;
-	//coord.y -= sin(angle) * speed;
-	angle += 0.05;
+	coord.x += cos(angle) * speed;
+	coord.y -= sin(angle) * speed;
+	//angle += 0.05;
 }
 
 void Player::draw() {
 	Drawable d;
-	d.rect.x = (int)coord.x;
-	d.rect.y = (int)coord.y;
-	d.rect.w = 100;
-	d.rect.h = 100;
+	d.drect.x = (int)coord.x;
+	d.drect.y = (int)coord.y;
+	d.drect.w = 100;
+	d.drect.h = 100;
 	d.texture = texture;
-	SDL_Point pivot = { 100, 100 };
-	drawObject(d, angle - (M_PI / 2), &pivot);
+	d.pivot = { 100, 100 };
+	d.angle = angle;
+	drawObject(d);
 }
 
 void Player::destruct() {
