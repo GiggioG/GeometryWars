@@ -40,9 +40,9 @@ void Presenter::drawObject(SDL_Texture* texture)
 	SDL_RenderCopy(m_mainRenderer, texture, NULL, NULL);
 }
 
-void Presenter::drawObject(Drawable& drawable)
-{
-	SDL_RenderCopyEx(m_mainRenderer, drawable.texture, &drawable.srect, &drawable.drect, drawable.angle, NULL, drawable.flip);
+void Presenter::drawObject(Drawable& drawable) {
+	float degrees = -drawable.angle * 180 / M_PI;
+	SDL_RenderCopyEx(m_mainRenderer, drawable.texture, &drawable.srect, &drawable.drect, degrees, NULL, drawable.flip);
 }
 
 void Presenter::improveRenderer()

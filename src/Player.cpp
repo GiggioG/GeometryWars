@@ -14,7 +14,7 @@ void Player::init() {
 void Player::update() {
 	coord.x += cos(angle) * speed;
 	coord.y -= sin(angle) * speed;
-	//angle += 0.05;
+	angle += 0.05;
 }
 
 void Player::draw() {
@@ -25,7 +25,7 @@ void Player::draw() {
 	d.drect.h = 100;
 	d.texture = texture;
 	d.pivot = { 100, 100 };
-	d.angle = angle;
+	d.angle = (angle - M_PI/2);
 	drawObject(d);
 }
 
