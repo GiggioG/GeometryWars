@@ -35,6 +35,13 @@ void Presenter::draw()
 	SDL_RenderClear(m_mainRenderer);
 }
 
+void Presenter::destroy() {
+	SDL_DestroyRenderer(m_mainRenderer);
+	SDL_DestroyWindow(m_mainWindow);
+	m_mainRenderer = nullptr;
+	m_mainWindow = nullptr;
+}
+
 void Presenter::drawObject(SDL_Texture* texture)
 {
 	SDL_RenderCopy(m_mainRenderer, texture, NULL, NULL);

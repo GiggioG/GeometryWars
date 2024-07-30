@@ -14,10 +14,10 @@ public:
 	void init();
 	void update();
 	void draw();
+	void destroy();
 
 	static void drawObject(SDL_Texture* texture);
 	static void drawObject(Drawable& drawable);
-	static void drawObject(DrawableSrcRect& drawableSrcRect);
 
 private:
 	void improveRenderer();

@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "InputManager.h"
 
 Player::Player(){}
 
@@ -12,20 +13,18 @@ void Player::init() {
 }
 
 void Player::update() {
-	coord.x += cos(angle) * speed;
-	coord.y -= sin(angle) * speed;
-	angle += 0.05;
+	coord.x = InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_LEFT) * Presenter::m_SCREEN_WIDTH;
+	coord.y = InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_RIGHT) * Presenter::m_SCREEN_HEIGHT;
 }
 
 void Player::draw() {
 	Drawable d;
-	d.drect.x = (int)coord.x;
-	d.drect.y = (int)coord.y;
 	d.drect.w = 100;
 	d.drect.h = 100;
+	d.drect.x = (int)coord.x - d.drect.w/2;
+	d.drect.y = (int)coord.y - d.drect.h/2;
 	d.texture = texture;
 	d.pivot = { 100, 100 };
-	d.angle = (angle - M_PI/2);
 	drawObject(d);
 }
 
