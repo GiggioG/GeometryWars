@@ -82,6 +82,11 @@ struct int2
 	}
 };
 
+struct polar {
+	float rad;
+	float angle;
+};
+
 struct float2
 {
 	//!!!IMPORTANT!!!

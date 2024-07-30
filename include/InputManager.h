@@ -21,6 +21,8 @@ public:
 	static const Uint8* m_keyboardState;
 	static float2 m_joyLeftStickCoor;
 	static float2 m_joyRightStickCoor;
+	static polar m_joyLeftStickPol;
+	static polar m_joyRightStickPol;
 	static float m_joyLeftTriggerVal;
 	static float m_joyRightTriggerVal;
 
@@ -36,7 +38,7 @@ private:
 	SDL_Event m_event;
 
 	float2 m_mouseMultiply;
-	int m_joystickDeadzone = 5000; /// TODO: config
+	int m_joystickDeadzone = 3200; /// TODO: config
 
 	SDL_Joystick* m_joystick;
 	int2 m_leftJoystickRaw, m_rightJoystickRaw;
@@ -45,7 +47,7 @@ private:
 	
 	static bool m_joyButtonPressed[6];
 
-	void normaliseStickValuesWithDeadzone(int2 stick, float2* normalised);
+	void normaliseStickValuesWithDeadzone(int2 stick, float2* normalised, polar* normalisedPolar);
 };
 
 
