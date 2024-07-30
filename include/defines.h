@@ -4,6 +4,10 @@
 #include <fstream>
 #include <SDL.h>
 
+#define D(x) cerr << #x << " = " << (x) << " | " << __LINE__ << endl;
+#define Dex(x) cerr << #x << " = " << (x) << " | " << __LINE__ << " " << __FILE__ << endl;
+#define __FILE_NAME__ (strrchr(__FILE__, '\\' ) ? strrchr(__FILE__, '\\') + 1 : __FILE__)
+
 using namespace std;
 
 static string IMG_FOLDER = "img\\";
