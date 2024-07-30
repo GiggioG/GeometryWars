@@ -17,6 +17,7 @@ public:
 	InputManager();
 	~InputManager();
 
+	static bool m_joystickConnected;
 	static int2 m_mouseCoor;
 	static const Uint8* m_keyboardState;
 	static float2 m_joyLeftStickCoor;

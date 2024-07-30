@@ -10,21 +10,20 @@ Enemy::~Enemy()
 {
 }
 
-void Enemy::update()
-{
+void Enemy::update() {
 	float2 playerCoords = Game::getCoords();
-	if (d.drect.x > playerCoords.x) {
-		d.drect.x -= speed;
-	}
-	else {
-		d.drect.x += speed;
-	}
-	if (d.drect.y >playerCoords.y) {
-		d.drect.y -= speed;
-	}
-	else {
-		d.drect.y += speed;
-	}
+
+	float xDiff = playerCoords.x - d.drect.x;
+	float yDiff = playerCoords.y - d.drect.y;
+
+	angle = atan2(-yDiff, xDiff);
+
+	d.drect.x += cos(angle) * speed;
+	d.drect.y -= sin(angle) * speed;
+
+	/// TODO:
+	// (see: steering behaviours)
+	// p + v*t = e + sqrt((e.x-(p+v*t).x)^2 + (e.y-(p+v*t).y)^2) * v_e * t
 
 }
 
@@ -32,7 +31,7 @@ void Enemy::init()
 {
 	model_w = 100;
 	model_h = 100;
-	model_name = "Shield.bmp";
+	model_name = "Player1.bmp";
 
 	model = new Enemy;
 	model->d.drect.w = model_w;
