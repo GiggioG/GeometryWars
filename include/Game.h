@@ -3,6 +3,7 @@
 #include "State.h"
 #include "Board.h"
 #include "Player.h"
+#include "Enemy.h"
 
 class Game : public State
 {
@@ -13,6 +14,7 @@ public:
 
 	Board m_board;
 	Player m_player;
+	Enemy m_enemy;
 
 	void init();
 	void destroy();
