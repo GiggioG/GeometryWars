@@ -13,10 +13,11 @@ public:
 	~Game();
 
 	Board m_board;
-	Player m_player;
+	static Player m_player;
 	Enemy m_enemy;
 
 	void init();
 	void destroy();
 	void run();
+	static float2 getCoords() ;
 };
