@@ -9,8 +9,8 @@ public:
 	~Player();
 
 	float m_angle;
+	bool m_aiming;
 
 	void init();
 	void update();
-
 };

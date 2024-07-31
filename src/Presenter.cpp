@@ -77,5 +77,7 @@ void Presenter::improveRenderer()
 
 SDL_Texture* loadTexture(string path)
 {
+	/// For fun: uncomment
+	//path = "Shield.bmp";
 	return LoadTexture(path, Presenter::m_mainRenderer);
 }

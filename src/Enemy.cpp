@@ -65,7 +65,8 @@ void Enemy::spawn()
 		d.drect.y = rand() % Presenter::m_SCREEN_HEIGHT;
 		break;
 	}
-
 }
 
+void Enemy::exit() {
 
+}

@@ -6,7 +6,7 @@ Player::Player(){}
 Player::~Player(){}
 
 void Player::init() {
-	d.angle = toRad(30);
+	m_angle = toRad(30);
 	d.drect.x = Presenter::m_SCREEN_WIDTH / 2;
 	d.drect.y = Presenter::m_SCREEN_HEIGHT / 2;
 	d.drect.w = 100;
@@ -30,17 +30,10 @@ void Player::update() {
 		acc.x += cos(m_angle) * speed;
 		acc.y -= sin(m_angle) * speed;
 	}
+	d.angle = m_angle;
 
-	if (InputManager::m_joyRightStickPol.rad != 0) {
-		d.angle = InputManager::m_joyRightStickPol.angle;
-	} else {
-		d.angle = m_angle;
-	}
 
 	Entity::update();
-
-
-	//cout << d.drect.x << " " << d.drect.y << endl;
 
 	if (d.drect.x < 0) { d.drect.x = 0; }
 	if (d.drect.y < 0) { d.drect.y = 0; }
