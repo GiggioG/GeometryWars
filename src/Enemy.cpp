@@ -16,10 +16,12 @@ void Enemy::update() {
 	float xDiff = playerCoords.x - d.drect.x;
 	float yDiff = playerCoords.y - d.drect.y;
 
-	angle = atan2(-yDiff, xDiff);
+	d.angle = atan2(-yDiff, xDiff);
 
-	d.drect.x += cos(angle) * speed;
-	d.drect.y -= sin(angle) * speed;
+	acc.x += cos(d.angle);
+	acc.y -= sin(d.angle);
+
+	Entity::update();
 
 	/// TODO:
 	// (see: steering behaviours)
@@ -39,8 +41,6 @@ void Enemy::init()
 	model->d.drect.x = 700;
 	model->d.drect.y = 700;
 	model->d.texture = loadTexture(model_name);
-	
-	
 }
 
 void Enemy::spawn()

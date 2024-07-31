@@ -39,7 +39,7 @@ private:
 	SDL_Event m_event;
 
 	float2 m_mouseMultiply;
-	int m_joystickDeadzone = 3200; /// TODO: config
+	int m_joystickDeadzone = 5000; /// TODO: config
 
 	SDL_Joystick* m_joystick;
 	int2 m_leftJoystickRaw, m_rightJoystickRaw;

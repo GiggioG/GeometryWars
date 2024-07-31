@@ -8,6 +8,8 @@ public:
 	Player();
 	~Player();
 
+	float m_angle;
+
 	void init();
 	void update();
 
