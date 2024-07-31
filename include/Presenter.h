@@ -18,15 +18,16 @@ public:
 
 	static void drawObject(SDL_Texture* texture);
 	static void drawObject(Drawable& drawable);
+	static void drawObject(Drawable& drawable, float angle);
 
 private:
 	void improveRenderer();
 };
 
-template <typename Params>
-void drawObject(Params& value)
+template <typename... Params>
+void drawObject(Params... value)
 {
-	Presenter::drawObject(value);
+	Presenter::drawObject(value...);
 }
 
 SDL_Texture* loadTexture(string path);
