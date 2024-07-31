@@ -1,5 +1,7 @@
 #include "InputManager.h"
 
+bool InputManager::m_joystickConnected = bool();
+
 bool InputManager::m_mouseIsPressed = bool();
 bool InputManager::m_joyButtonPressed[6] = { bool() };
 
@@ -29,6 +31,7 @@ void InputManager::init() {
 		cerr << "ERROR: Couldn't open game controller! SDL Error: " << SDL_GetError() << '\n';
 		return;
 	}
+	m_joystickConnected = true;
 	for (int i = 0; i < 6; i++) {
 		m_joyButtonPressed[i] = false;
 	}

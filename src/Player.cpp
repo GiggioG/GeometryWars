@@ -16,6 +16,12 @@ void Player::init() {
 }
 
 void Player::update() {
+	if (!InputManager::m_joystickConnected) { /// TODO: this is only for developement debugging
+		d.drect.x = InputManager::m_mouseCoor.x - d.drect.w/2;
+		d.drect.y = InputManager::m_mouseCoor.y - d.drect.h/2;
+		return;
+	}
+
 	angle = InputManager::m_joyRightStickPol.angle;
 
 	speed = 9 * InputManager::m_joyRightStickPol.rad * (1 + InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_RIGHT) * 2);
