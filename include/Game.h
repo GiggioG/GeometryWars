@@ -13,7 +13,7 @@ public:
 	~Game();
 
 	Board m_board;
-	static Player m_player;
+	static Player m_player; 
 	Enemy m_enemy;
 
 	void init();

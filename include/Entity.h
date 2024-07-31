@@ -14,7 +14,7 @@ public:
 	float speed = 3;
 
 	virtual void init();
-	virtual void draw();
+	virtual void draw() const;
 	virtual void update();
 	virtual void exit();
 };

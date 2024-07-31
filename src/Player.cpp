@@ -31,12 +31,21 @@ void Player::update() {
 		acc.y -= sin(m_angle) * speed;
 	}
 	d.angle = m_angle;
-
-
+	m_aiming = (InputManager::m_joyRightStickPol.rad != 0);
+	if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_RIGHT)) {
+		shoot();
+	}
 	Entity::update();
 
 	if (d.drect.x < 0) { d.drect.x = 0; }
 	if (d.drect.y < 0) { d.drect.y = 0; }
 	if (d.drect.x >= Presenter::m_SCREEN_WIDTH - d.drect.w) { d.drect.x = Presenter::m_SCREEN_WIDTH - d.drect.w -1; }
 	if (d.drect.y >= Presenter::m_SCREEN_HEIGHT - d.drect.h) { d.drect.y = Presenter::m_SCREEN_HEIGHT - d.drect.h -1; }
+}
+
+void Player::shoot()
+{
+	Bullet temp_b;
+	temp_b.spawn({ d.drect.x,d.drect.y }, d.angle, 1);
+	bullets.push_back(temp_b);
 }
