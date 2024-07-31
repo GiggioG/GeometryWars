@@ -32,7 +32,8 @@ void Player::update() {
 	}
 	d.angle = m_angle;
 	m_aiming = (InputManager::m_joyRightStickPol.rad != 0);
-	if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_RIGHT)) {
+	int coolDown = (3 + 15 * (1.0 - InputManager::m_joyRightTriggerVal));
+	if (InputManager::m_joyRightTriggerVal != 0 && SDL_GetTicks() % coolDown == 0) {
 		shoot();
 	}
 	Entity::update();
@@ -46,6 +47,6 @@ void Player::update() {
 void Player::shoot()
 {
 	Bullet temp_b;
-	temp_b.spawn({ d.drect.x,d.drect.y }, d.angle, 1);
+	temp_b.spawn({ d.drect.x,d.drect.y }, InputManager::m_joyRightStickPol.angle, 1);
 	bullets.push_back(temp_b);
 }

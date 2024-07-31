@@ -43,12 +43,14 @@ private:
 
 	SDL_Joystick* m_joystick;
 	int2 m_leftJoystickRaw, m_rightJoystickRaw;
+	float m_leftTriggerRaw, m_rightTriggerRaw;
 
 	static bool m_mouseIsPressed;
 	
 	static bool m_joyButtonPressed[6];
 
 	void normaliseStickValuesWithDeadzone(int2 stick, float2* normalised, polar* normalisedPolar);
+	void normaliseTriggerValueWithDeadzone(float trigger, float* normalised);
 };
 
 

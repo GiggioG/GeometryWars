@@ -18,8 +18,8 @@ void Enemy::update() {
 
 	d.angle = atan2(-yDiff, xDiff);
 
-	acc.x += cos(d.angle);
-	acc.y -= sin(d.angle);
+	acc.x += cos(d.angle) * 0.4;
+	acc.y -= sin(d.angle) * 0.4;
 
 	Entity::update();
 

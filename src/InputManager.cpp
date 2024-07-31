@@ -85,10 +85,10 @@ void InputManager::handleInput()
 				m_rightJoystickRaw.y = m_event.jaxis.value;
 			}
 			else if (axis == 4) {
-				m_joyLeftTriggerVal = (float)m_event.jaxis.value / 32767;
+				m_leftTriggerRaw = m_event.jaxis.value;
 			}
 			else if (axis == 5) {
-				m_joyRightTriggerVal = (float)m_event.jaxis.value / 32767;
+				m_rightTriggerRaw = m_event.jaxis.value;
 			}
 			break;
 		}
@@ -106,6 +106,9 @@ void InputManager::handleInput()
 	}
 	normaliseStickValuesWithDeadzone(m_leftJoystickRaw, &m_joyLeftStickCoor, &m_joyLeftStickPol);
 	normaliseStickValuesWithDeadzone(m_rightJoystickRaw, &m_joyRightStickCoor, &m_joyRightStickPol);
+
+	normaliseTriggerValueWithDeadzone(m_leftTriggerRaw, &m_joyLeftTriggerVal);
+	normaliseTriggerValueWithDeadzone(m_rightTriggerRaw, &m_joyRightTriggerVal);
 
 	m_keyboardState = SDL_GetKeyboardState(NULL);
 }
@@ -132,6 +135,14 @@ void InputManager::normaliseStickValuesWithDeadzone(int2 stick, float2* normalis
 	if (!deadZone) {
 		normalisedPolar->angle = atan2(-normalised->y, normalised->x);
 	}
+}
+
+void InputManager::normaliseTriggerValueWithDeadzone(float trigger, float* normalised) {
+	bool deadZone = (trigger < m_joystickDeadzone);
+	if (deadZone) {
+		trigger = 0;
+	}
+	*normalised = (float)trigger/32767.0f;
 }
 
 bool isAnyKeyPressed()

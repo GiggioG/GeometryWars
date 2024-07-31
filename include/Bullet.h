@@ -12,6 +12,7 @@ public:
 	int model_w;
 	int model_h;
 	bool shot_by_player;
+	bool out_of_bounds;
 
 	void update();
 	void init();
