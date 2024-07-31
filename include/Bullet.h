@@ -7,7 +7,7 @@ public:
 	Bullet();
 	~Bullet();
 
-	Bullet* model;
+	static Bullet model;
 	string model_name;
 	int model_w;
 	int model_h;
@@ -16,5 +16,4 @@ public:
 	void update();
 	void init();
 	void spawn(float2,float,bool);
-	void exit();
 };

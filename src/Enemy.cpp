@@ -68,4 +68,10 @@ void Enemy::spawn()
 
 }
 
+void Enemy::exit()
+{
+	SDL_DestroyTexture(model->d.texture);
+	delete model;
+}
+
 

@@ -11,9 +11,10 @@ public:
 	Drawable d;
 	float2 vel = { 0, 0 };
 	float2 acc = { 0, 0 };
+	int speed;
 
 	virtual void init();
-	virtual void draw();
+	virtual void draw() const;
 	virtual void update();
 	virtual void exit();
 };

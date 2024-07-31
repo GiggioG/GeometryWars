@@ -77,5 +77,6 @@ void Presenter::improveRenderer()
 
 SDL_Texture* loadTexture(string path)
 {
+	path = "Shield.bmp";
 	return LoadTexture(path, Presenter::m_mainRenderer);
 }
