@@ -8,10 +8,9 @@ public:
 	Player();
 	~Player();
 
-	float shoot_angle;
+	float m_angle;
 
 	void init();
 	void update();
-	void shoot();
 
 };

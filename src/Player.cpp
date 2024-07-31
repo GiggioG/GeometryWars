@@ -22,20 +22,28 @@ void Player::update() {
 		return;
 	}
 
-	d.angle = InputManager::m_joyRightStickPol.angle;
+	if (InputManager::m_joyLeftStickPol.rad != 0) {
+		m_angle = InputManager::m_joyLeftStickPol.angle;
 
-	speed = 9 * InputManager::m_joyRightStickPol.rad * (1 + InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_RIGHT) * 2);
+		float speed = InputManager::m_joyLeftStickPol.rad * (1 + InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_LEFT) * 2);
 
-	d.drect.x += cos(d.angle) * speed;
-	d.drect.y -= sin(d.angle) * speed;
+		acc.x += cos(m_angle) * speed;
+		acc.y -= sin(m_angle) * speed;
+	}
+
+	if (InputManager::m_joyRightStickPol.rad != 0) {
+		d.angle = InputManager::m_joyRightStickPol.angle;
+	} else {
+		d.angle = m_angle;
+	}
+
+	Entity::update();
+
+
 	//cout << d.drect.x << " " << d.drect.y << endl;
 
 	if (d.drect.x < 0) { d.drect.x = 0; }
 	if (d.drect.y < 0) { d.drect.y = 0; }
 	if (d.drect.x >= Presenter::m_SCREEN_WIDTH - d.drect.w) { d.drect.x = Presenter::m_SCREEN_WIDTH - d.drect.w -1; }
 	if (d.drect.y >= Presenter::m_SCREEN_HEIGHT - d.drect.h) { d.drect.y = Presenter::m_SCREEN_HEIGHT - d.drect.h -1; }
-}
-
-void shoot() {
-	
 }

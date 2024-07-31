@@ -9,11 +9,11 @@ public:
 	virtual ~Entity();
 
 	Drawable d;
-	//float angle = 0;
-	float speed = 3;
+	float2 vel = { 0, 0 };
+	float2 acc = { 0, 0 };
 
 	virtual void init();
 	virtual void draw();
-	virtual void update()=0;
+	virtual void update();
 	virtual void exit();
 };

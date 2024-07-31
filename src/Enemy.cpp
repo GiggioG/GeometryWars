@@ -18,8 +18,10 @@ void Enemy::update() {
 
 	d.angle = atan2(-yDiff, xDiff);
 
-	d.drect.x += cos(d.angle) * speed;
-	d.drect.y -= sin(d.angle) * speed;
+	acc.x += cos(d.angle);
+	acc.y -= sin(d.angle);
+
+	Entity::update();
 
 	/// TODO:
 	// (see: steering behaviours)
@@ -39,8 +41,6 @@ void Enemy::init()
 	model->d.drect.x = 700;
 	model->d.drect.y = 700;
 	model->d.texture = loadTexture(model_name);
-	
-	
 }
 
 void Enemy::spawn()
@@ -69,8 +69,3 @@ void Enemy::spawn()
 }
 
 
-void Enemy::exit()
-{
-	SDL_DestroyTexture(model->d.texture);
-	delete model;
-}
