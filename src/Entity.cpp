@@ -10,7 +10,7 @@ Entity::~Entity()
 
 void Entity::draw()
 {
-	d.angle = (angle - M_PI / 2);
+	d.angle = (d.angle - M_PI / 2);
 	drawObject(d);
 }
 

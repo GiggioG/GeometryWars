@@ -15,4 +15,6 @@ public:
 	void update();
 	void init();
 	void spawn();
+	void exit();
+
 };

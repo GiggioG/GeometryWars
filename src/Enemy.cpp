@@ -16,10 +16,10 @@ void Enemy::update() {
 	float xDiff = playerCoords.x - d.drect.x;
 	float yDiff = playerCoords.y - d.drect.y;
 
-	angle = atan2(-yDiff, xDiff);
+	d.angle = atan2(-yDiff, xDiff);
 
-	d.drect.x += cos(angle) * speed;
-	d.drect.y -= sin(angle) * speed;
+	d.drect.x += cos(d.angle) * speed;
+	d.drect.y -= sin(d.angle) * speed;
 
 	/// TODO:
 	// (see: steering behaviours)
@@ -69,3 +69,8 @@ void Enemy::spawn()
 }
 
 
+void Enemy::exit()
+{
+	SDL_DestroyTexture(model->d.texture);
+	delete model;
+}

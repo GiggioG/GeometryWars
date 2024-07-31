@@ -9,7 +9,7 @@ public:
 	virtual ~Entity();
 
 	Drawable d;
-	float angle = 0;
+	//float angle = 0;
 	float speed = 3;
 
 	virtual void init();
