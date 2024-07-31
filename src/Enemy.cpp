@@ -32,7 +32,7 @@ void Enemy::init()
 {
 	model_w = 100;
 	model_h = 100;
-	model_name = "Shield.bmp";
+	model_name = "NITE_gotovo_png.png";
 
 	model = new Enemy;
 	model->d.drect.w = model_w;
