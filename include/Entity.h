@@ -19,4 +19,5 @@ public:
 	virtual void draw();
 	virtual void update();
 	virtual void exit();
+	virtual void checkBounds();
 };

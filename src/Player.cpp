@@ -2,6 +2,8 @@
 #include "InputManager.h"
 #include "Game.h"
 
+extern float deltaTime;
+
 Player::Player(){}
 
 Player::~Player(){}
@@ -15,6 +17,8 @@ void Player::init() {
 	d.texture = loadTexture("Player2.bmp");
 
 }
+
+Uint64 lastShotTime = 0;
 
 void Player::update() {
 	if (!InputManager::m_joystickConnected) { /// TODO: this is only for developement debugging
@@ -33,9 +37,11 @@ void Player::update() {
 	}
 	d.angle = m_angle;
 	m_aiming = (InputManager::m_joyRightStickPol.rad != 0);
-	int coolDown = 0;
-	if (InputManager::m_joyRightTriggerVal != 0) {
+	Uint64 currTime = SDL_GetPerformanceCounter();
+	//if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_RIGHT) && (currTime - lastShotTime) > 800000.0f * deltaTime) {
+	if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_RIGHT) && (currTime - lastShotTime) > 8000000.0f) {
 		shoot();
+		lastShotTime = currTime;
 	}
 	Entity::update();
 

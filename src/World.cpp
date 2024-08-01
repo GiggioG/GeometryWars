@@ -1,14 +1,17 @@
 #include "World.h"
 
-World::World()
-{
+float deltaTime;
+
+World::World() {
 	m_isRunning = true;
 }
 
-World::~World()
-{
+World::~World() {
 
 }
+
+Uint64 currentTime = 0;
+Uint64 lastTime = 0;
 
 void World::init()
 {
@@ -16,12 +19,20 @@ void World::init()
 	m_presenter.init();
 	m_inputManager.init();
 	m_stateManager.init(GAME_STATE::GAME);
+
+	currentTime = SDL_GetPerformanceCounter();
+	lastTime = SDL_GetPerformanceCounter();
 }
+
 
 void World::run()
 {
 	m_inputManager.handleInput();
 
+	lastTime = currentTime;
+	currentTime = SDL_GetPerformanceCounter();
+	deltaTime = (float)((currentTime - lastTime) * 1000.0f / (float)SDL_GetPerformanceFrequency());
+	deltaTime /= 16.0f; /// TODO: config
 	m_stateManager.run();
 
 	m_presenter.draw();

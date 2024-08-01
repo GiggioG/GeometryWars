@@ -27,4 +27,5 @@ int main(int argc, char* argv[])
 	TODO: deltaTime
 	    : bullets in Game/Board, out of bounds detection in Game/Board.update();
 	TODO: draw different bullet texture by "shot_by_player"
+	TODO: enemy predict trajectory
 */

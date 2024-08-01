@@ -27,6 +27,7 @@ SDL_Texture* LoadTexture(string bmpFile, SDL_Renderer* renderer)
     {
         if (i < 0)
         {
+            
             cout << "NO TEXTURE LOADED: " << bmpFile << endl;
 
             //bmpFile = IMG_FOLDER + cfgm->cfg["TEXTURE_NOT_LOADED_TEXTURE"].s;
