@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "InputManager.h"
+#include "Game.h"
 
 Player::Player(){}
 
@@ -48,5 +49,5 @@ void Player::shoot()
 {
 	Bullet temp_b;
 	temp_b.spawn({ d.drect.x,d.drect.y }, InputManager::m_joyRightStickPol.angle, 1);
-	bullets.push_back(temp_b);
+	Game::m_bullets.push_back(temp_b);
 }

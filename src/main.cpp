@@ -21,10 +21,10 @@ int main(int argc, char* argv[])
 	TODO: make functions which can be constexpr constexpr
 	TODO: make methods that don't modify the object "const"
 	TODO: put const in method's arguments when adequate
-	TODO: use std::list for bullets instead of vector
+	    : use std::list for bullets instead of vector
 	TODO: fix shooting cooldown with some proper approach
 	TODO: m_angle and pos for physics, d.* for drawing
 	TODO: deltaTime
-	TODO: bullets in Game/Board, out of bounds detection in Game/Board.update();
+	    : bullets in Game/Board, out of bounds detection in Game/Board.update();
 	TODO: draw different bullet texture by "shot_by_player"
 */

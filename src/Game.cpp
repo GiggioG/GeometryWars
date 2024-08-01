@@ -1,6 +1,7 @@
 #include "Game.h"
 
 Player Game::m_player = Player();
+list<Bullet> Game::m_bullets = list<Bullet>();
 
 Game::Game()
 {
@@ -28,15 +29,22 @@ void Game::run()
 {
 	m_board.update();
 	m_player.update();
-	for (int i = 0; i < m_player.bullets.size(); i++) {
-		m_player.bullets[i].update();
+	for (list<Bullet>::iterator it = m_bullets.begin(); it != m_bullets.end();) {
+		it->update();
+		if (it->out_of_bounds) {
+			list<Bullet>::iterator it2 = it;
+			++it;
+			m_bullets.erase(it2);
+		}else {
+			++it;
+		}
 	}
 	m_enemy.update();
 
 	m_board.draw();
 	m_player.draw();
-	for (int i = 0; i < m_player.bullets.size(); i++) {
-		m_player.bullets[i].draw();
+	for (list<Bullet>::iterator it = m_bullets.begin(); it != m_bullets.end(); ++it) {
+		it->draw();
 	}
 	m_enemy.draw();
 }

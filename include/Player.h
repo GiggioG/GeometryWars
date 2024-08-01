@@ -11,7 +11,6 @@ public:
 	~Player();
 
 	float m_angle;
-	vector<Bullet> bullets;
 	bool m_aiming;
 
 	void init();

@@ -4,6 +4,7 @@
 #include "Board.h"
 #include "Player.h"
 #include "Enemy.h"
+#include <list>
 
 class Game : public State
 {
@@ -13,8 +14,9 @@ public:
 	~Game();
 
 	Board m_board;
-	static Player m_player; 
+	static Player m_player;
 	Enemy m_enemy;
+	static list<Bullet> m_bullets;
 
 	void init();
 	void destroy();

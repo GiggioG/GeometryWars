@@ -14,10 +14,7 @@ void Bullet::update()
 	d.drect.x += cos(d.angle)*speed;
 	d.drect.y -= sin(d.angle)*speed;
 	if (d.drect.x > Presenter::m_SCREEN_WIDTH || d.drect.x < 0 || d.drect.y<0 || d.drect.y>Presenter::m_SCREEN_HEIGHT) {
-		//exit();
-		d.drect.x = 100;
-		d.drect.y = 100;
-		speed = 0;
+		out_of_bounds = true;
 	}
 	//D(speed);
 	//D(d.drect.y);
