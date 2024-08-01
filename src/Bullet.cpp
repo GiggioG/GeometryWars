@@ -1,5 +1,7 @@
 #include "Bullet.h"
 
+extern float deltaTime;
+
 Bullet Bullet::model = Bullet();
 Bullet::Bullet()
 {
@@ -11,11 +13,9 @@ Bullet::~Bullet()
 
 void Bullet::update()
 {
-	d.drect.x += cos(d.angle)*speed;
-	d.drect.y -= sin(d.angle)*speed;
-	if (d.drect.x > Presenter::m_SCREEN_WIDTH || d.drect.x < 0 || d.drect.y<0 || d.drect.y>Presenter::m_SCREEN_HEIGHT) {
-		out_of_bounds = true;
-	}
+	d.drect.x += cos(d.angle) * speed * deltaTime;
+	d.drect.y -= sin(d.angle)*speed * deltaTime;
+	checkBounds();
 	//D(speed);
 	//D(d.drect.y);
 	//D(d.angle);

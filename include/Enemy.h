@@ -16,5 +16,5 @@ public:
 	void init();
 	void spawn();
 	void exit();
-
+	void checkBounds() {}
 };

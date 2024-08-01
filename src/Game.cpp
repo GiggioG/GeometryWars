@@ -31,7 +31,7 @@ void Game::run()
 	m_player.update();
 	for (list<Bullet>::iterator it = m_bullets.begin(); it != m_bullets.end();) {
 		it->update();
-		if (it->out_of_bounds) {
+		if (it->toDelete) {
 			list<Bullet>::iterator it2 = it;
 			++it;
 			m_bullets.erase(it2);
