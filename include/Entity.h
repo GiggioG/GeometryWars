@@ -16,7 +16,7 @@ public:
 	bool toDelete=false;
 
 	virtual void init();
-	virtual void draw();
+	virtual void draw() const;
 	virtual void update();
 	virtual void exit();
 	virtual void checkBounds();

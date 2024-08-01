@@ -61,8 +61,7 @@ struct int2
 		return *this;
 	}
 
-	bool operator!=(int2 a)
-	{
+	bool operator!=(int2 a) const {
 		if (x == a.x && y == a.y)
 		{
 			return false;
@@ -73,8 +72,7 @@ struct int2
 		}
 	}
 
-	bool operator==(int2 a)
-	{
+	bool operator==(int2 a) const {
 		if (x == a.x && y == a.y)
 		{
 			return true;
@@ -137,8 +135,7 @@ struct float2
 		return *this;
 	}
 
-	bool operator!=(float2 a)
-	{
+	bool operator!=(float2 a) const {
 		if (x == a.x && y == a.y)
 		{
 			return false;
@@ -149,8 +146,7 @@ struct float2
 		}
 	}
 
-	bool operator==(float2 a)
-	{
+	bool operator==(float2 a) const {
 		if (x == a.x && y == a.y)
 		{
 			return true;
@@ -174,25 +170,25 @@ struct double2
 		y = 0;
 	}
 
-	void set(double2 b)
+	void set(const double2 b)
 	{
 		x = b.x;
 		y = b.y;
 	}
 
-	void operator*=(double2 a)
+	void operator*=(const double2 a)
 	{
 		x *= a.x;
 		y *= a.y;
 	}
 
-	void operator/=(double2 a)
+	void operator/=(const double2 a)
 	{
 		x /= a.x;
 		y /= a.y;
 	}
 
-	double2 operator*(double2 a)
+	double2 operator*(const double2 a)
 	{
 		x *= a.x;
 		y *= a.y;
@@ -200,7 +196,7 @@ struct double2
 		return *this; //Returns instance of the current class (After the modifications)
 	}
 
-	double2 operator/(double2 a)
+	double2 operator/(const double2 a)
 	{
 		x /= a.x;
 		y /= a.y;
@@ -208,8 +204,7 @@ struct double2
 		return *this;
 	}
 
-	bool operator!=(double2 a)
-	{
+	bool operator!=(const double2 a) const {
 		if (x == a.x && y == a.y)
 		{
 			return false;
@@ -220,8 +215,7 @@ struct double2
 		}
 	}
 
-	bool operator==(double2 a)
-	{
+	bool operator==(const double2 a) const {
 		if (x == a.x && y == a.y)
 		{
 			return true;
@@ -236,7 +230,7 @@ struct double2
 struct Rect {
 	double x, y;
 	double w, h;
-	SDL_Rect toSdlRect() {
+	SDL_Rect toSdlRect() const {
 		return { (int)x, (int)y, (int)w, (int)h };
 	}
 };

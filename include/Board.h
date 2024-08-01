@@ -10,7 +10,7 @@ public:
 
 	void init();
 	void update();
-	void draw();
+	void draw() const;
 	void destroy();
 
 private:

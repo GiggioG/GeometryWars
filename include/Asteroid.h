@@ -9,5 +9,5 @@ public:
 
 	static Asteroid model;
 	void init();
-	void update() override;
+	void update();
 };

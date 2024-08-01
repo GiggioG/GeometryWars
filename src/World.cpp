@@ -45,7 +45,6 @@ void World::destroy()
 	m_presenter.destroy();
 }
 
-bool World::isRunning()
-{
+bool World::isRunning() const {
 	return m_isRunning;
 }

@@ -28,8 +28,7 @@ void Presenter::update()
 
 }
 
-void Presenter::draw()
-{
+void Presenter::draw() const {
 	SDL_RenderPresent(m_mainRenderer);
 
 	SDL_RenderClear(m_mainRenderer);
@@ -44,15 +43,15 @@ void Presenter::destroy() {
 
 void Presenter::drawObject(SDL_Texture* texture)
 {
-	SDL_RenderCopy(m_mainRenderer, texture, NULL, NULL);
+	SDL_RenderCopy(m_mainRenderer, texture, NULL, NULL); /// TODO: Errm guys, what the sigma? why can't i make texture const
 }
 
-void Presenter::drawObject(Drawable& drawable) {
+void Presenter::drawObject(const Drawable& drawable) {
 	float degrees = -drawable.angle * 180 / M_PI;
 	SDL_RenderCopyExF(m_mainRenderer, drawable.texture, &drawable.srect, &drawable.drect, degrees, NULL, drawable.flip);
 }
 
-void Presenter::drawObject(Drawable& drawable, float angle) {
+void Presenter::drawObject(const Drawable& drawable, float angle) {
 	float degrees = -angle * 180 / M_PI;
 	SDL_RenderCopyExF(m_mainRenderer, drawable.texture, &drawable.srect, &drawable.drect, degrees, NULL, drawable.flip);
 }

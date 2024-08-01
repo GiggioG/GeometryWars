@@ -21,5 +21,5 @@ public:
 	void init();
 	void destroy();
 	void run();
-	static float2 getCoords() ;
+	static float2 getCoords();
 };

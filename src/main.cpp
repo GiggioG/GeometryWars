@@ -18,15 +18,15 @@ int main(int argc, char* argv[])
 }
 
 /***
-	TODO: make functions which can be constexpr constexpr
-	TODO: make methods that don't modify the object "const"
-	TODO: put const in method's arguments when adequate
+	    : make functions which can be constexpr constexpr
+	    : make methods that don't modify the object "const"
+	    : put const in method's arguments when adequate
 	    : use std::list for bullets instead of vector
-	TODO: fix shooting cooldown with some proper approach
+	    : fix shooting cooldown with some proper approach
 	TODO: m_angle and pos for physics, d.* for drawing
-	TODO: deltaTime
+	    : deltaTime
 	    : bullets in Game/Board, out of bounds detection in Game/Board.update();
 	TODO: draw different bullet texture by "shot_by_player"
 	TODO: enemy predict trajectory
-	TODO: construct enemies and bullets in-place, instead of using temporarys
+	    : construct enemies and bullets in-place, instead of using temporarys
 */

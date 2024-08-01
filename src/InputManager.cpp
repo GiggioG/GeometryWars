@@ -137,7 +137,7 @@ void InputManager::normaliseStickValuesWithDeadzone(int2 stick, float2* normalis
 	}
 }
 
-void InputManager::normaliseTriggerValueWithDeadzone(float trigger, float* normalised) {
+void InputManager::normaliseTriggerValueWithDeadzone(float trigger, float* normalised) const {
 	bool deadZone = (trigger < m_joystickDeadzone);
 	if (deadZone) {
 		trigger = 0;

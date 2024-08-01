@@ -8,7 +8,7 @@ Entity::Entity() {
 Entity::~Entity() {
 }
 
-void Entity::draw()  {
+void Entity::draw() const {
 	drawObject(d, float(d.angle - M_PI / 2));
 }
 

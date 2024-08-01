@@ -20,7 +20,7 @@ public:
 	void run();
 	void destroy();
 
-	bool isRunning();
+	bool isRunning() const;
 private:
 	bool m_isRunning;
 };

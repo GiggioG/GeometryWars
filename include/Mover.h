@@ -6,7 +6,4 @@ class Mover : public Enemy {
 public:
 	Mover();
 	~Mover();
-
-
-
 };

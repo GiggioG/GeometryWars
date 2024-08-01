@@ -12,7 +12,7 @@ Enemy::~Enemy()
 
 
 
-void Enemy::spawn(Enemy *m)
+void Enemy::spawn(const Enemy * m)
 {
 	int dir = rand() % 4;
 	d = m->d;

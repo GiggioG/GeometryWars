@@ -35,7 +35,7 @@ void Board::update()
 	
 }
 
-void Board::draw()
+void Board::draw() const
 {
 	drawObject(m_background);
 }

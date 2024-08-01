@@ -12,6 +12,6 @@ public:
 	int model_h;
 	
 	void exit();
-	void spawn(Enemy* m);
+	void spawn(const Enemy* m);
 	void checkBounds();
 };

@@ -50,7 +50,7 @@ private:
 	static bool m_joyButtonPressed[6];
 
 	void normaliseStickValuesWithDeadzone(int2 stick, float2* normalised, polar* normalisedPolar);
-	void normaliseTriggerValueWithDeadzone(float trigger, float* normalised);
+	void normaliseTriggerValueWithDeadzone(float trigger, float* normalised) const;
 };
 
 

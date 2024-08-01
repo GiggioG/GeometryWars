@@ -15,5 +15,5 @@ public:
 
 	void update();
 	void init();
-	void spawn(float2,float,bool);
+	void spawn(float2 pos, float angle, bool shot_by);
 };

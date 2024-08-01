@@ -23,9 +23,9 @@ void Game::init()
 	Asteroid::model.init();
 	Bullet::model.init();
 	//m_enemy.spawn();
-	Chaser* temp_c = new Chaser;
-	temp_c->spawn(&Chaser::model);
-	m_enemies.push_back(temp_c);
+	Chaser* newChaser = new Chaser;
+	newChaser->spawn(&Chaser::model);
+	m_enemies.push_back(newChaser);
 }
 
 void Game::destroy()
@@ -68,9 +68,9 @@ void Game::run()
 	if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_B)) {
 		//cout << "b" << endl;
 
-		Asteroid* temp_a = new Asteroid;
-		temp_a->spawn(&Asteroid::model);
-		m_enemies.push_back(temp_a);
+		Asteroid* newAsteroid = new Asteroid;
+		newAsteroid->spawn(&Asteroid::model);
+		m_enemies.push_back(newAsteroid);
 	}
 
 	

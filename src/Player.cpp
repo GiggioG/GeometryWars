@@ -22,10 +22,16 @@ Uint64 lastShotTime = 0;
 
 void Player::update() {
 	if (!InputManager::m_joystickConnected) { /// TODO: this is only for developement debugging
-		d.drect.x = InputManager::m_mouseCoor.x - d.drect.w/2;
-		d.drect.y = InputManager::m_mouseCoor.y - d.drect.h/2;
-		return;
-	}
+		float newX = InputManager::m_mouseCoor.x - d.drect.w/2;
+		float newY = InputManager::m_mouseCoor.y - d.drect.h/2;
+		float xDiff = newX - d.drect.x;
+		float yDiff = newY - d.drect.y;
+		if (xDiff*xDiff + yDiff*yDiff > 0) {
+			m_angle = atan2(-yDiff, xDiff);
+			d.drect.x = newX;
+			d.drect.y = newY;
+		}
+	}else
 
 	if (InputManager::m_joyLeftStickPol.rad != 0) {
 		m_angle = InputManager::m_joyLeftStickPol.angle;
@@ -38,6 +44,12 @@ void Player::update() {
 	d.angle = m_angle;
 	m_aiming = (InputManager::m_joyRightStickPol.rad != 0);
 	Uint64 currTime = SDL_GetPerformanceCounter();
+	if (!InputManager::m_joystickConnected && InputManager::m_keyboardState[SDL_SCANCODE_SPACE] && (currTime - lastShotTime) > 800000.0f) { /// TODO: this is only for developement debugging
+		shoot();
+		(*Game::m_bullets.rbegin())->d.angle = m_angle;
+		lastShotTime = currTime;
+	}else
+
 	if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_RIGHT) && (currTime - lastShotTime) > 800000.0f) {
 		shoot();
 		lastShotTime = currTime;
@@ -52,8 +64,7 @@ void Player::update() {
 
 void Player::shoot()
 {
-	Bullet* temp_b = new Bullet;
-	temp_b->spawn({ d.drect.x,d.drect.y }, InputManager::m_joyRightStickPol.angle, true);
-
-	Game::m_bullets.push_back(temp_b);
+	Bullet* newBullet = new Bullet;
+	newBullet->spawn({ d.drect.x,d.drect.y }, InputManager::m_joyRightStickPol.angle, true);
+	Game::m_bullets.push_back(newBullet);
 }

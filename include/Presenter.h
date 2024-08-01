@@ -13,19 +13,19 @@ public:
 
 	void init();
 	void update();
-	void draw();
+	void draw() const ;
 	void destroy();
 
 	static void drawObject(SDL_Texture* texture);
-	static void drawObject(Drawable& drawable);
-	static void drawObject(Drawable& drawable, float angle);
+	static void drawObject(const Drawable& drawable);
+	static void drawObject(const Drawable& drawable, float angle);
 
 private:
 	void improveRenderer();
 };
 
 template <typename... Params>
-void drawObject(Params... value)
+void drawObject(const Params... value)
 {
 	Presenter::drawObject(value...);
 }
