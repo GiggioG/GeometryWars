@@ -17,6 +17,7 @@ void Bullet::update()
 	d.drect.y -= sin(d.angle) * speed * deltaTime;
 	checkBounds();
 	//D(speed);
+	//D(d.drect.x);
 	//D(d.drect.y);
 	//D(d.angle);
 }
@@ -37,6 +38,7 @@ void Bullet::init()
 
 void Bullet::spawn(float2 pos, float angle, bool shot_by)
 {
+	toDelete = false;
 	d = model.d;
 	speed = model.speed;
 	d.drect.x = pos.x;

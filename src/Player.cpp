@@ -54,5 +54,6 @@ void Player::shoot()
 {
 	Bullet temp_b;
 	temp_b.spawn({ d.drect.x,d.drect.y }, InputManager::m_joyRightStickPol.angle, true);
+
 	Game::m_bullets.push_back(temp_b);
 }

@@ -12,7 +12,8 @@ public:
 	float2 vel = { 0, 0 };
 	float2 acc = { 0, 0 };
 	float speed = 3;
-	bool toDelete = false;
+	int health;
+	bool toDelete=false;
 
 	virtual void init();
 	virtual void draw();
