@@ -11,14 +11,7 @@ Enemy::~Enemy()
 {
 }
 
-void Enemy::init()
-{
-	model.d.drect.w = model_w;
-	model.d.drect.h = model_h;
-	model.d.drect.x = 700;
-	model.d.drect.y = 700;
-	model.d.texture = loadTexture(model_name);
-}
+
 
 void Enemy::spawn()
 {
@@ -45,5 +38,9 @@ void Enemy::spawn()
 }
 
 void Enemy::exit() {
+
+}
+
+void Enemy::checkBounds() {
 
 }
