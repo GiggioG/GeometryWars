@@ -11,10 +11,9 @@ Bullet::~Bullet()
 {
 }
 
-void Bullet::update()
-{
-	d.drect.x += cos(d.angle) * speed * deltaTime;
-	d.drect.y -= sin(d.angle) * speed * deltaTime;
+void Bullet::update() {
+	pos.x += cos(angle) * speed * deltaTime;
+	pos.y -= sin(angle) * speed * deltaTime;
 	checkBounds();
 	//D(speed);
 	//D(d.drect.x);
@@ -22,8 +21,7 @@ void Bullet::update()
 	//D(d.angle);
 }
 
-void Bullet::init()
-{
+void Bullet::init() {
 	model_w = 50;
 	model_h = 50;
 	model_name = "Shield.bmp";
@@ -33,19 +31,19 @@ void Bullet::init()
 	model.d.drect.h = model_h;
 	model.d.drect.x = 700;
 	model.d.drect.y = 700;
+	model.pos = { 700, 700 };
+	model.angle = 0;
 	model.d.texture = loadTexture(model_name);
 }
 
-void Bullet::spawn(float2 pos, float angle, bool shot_by)
-{
+void Bullet::spawn(float2 startPos, float startAngle, bool shot_by) {
 	toDelete = false;
 	d = model.d;
 	speed = model.speed;
-	d.drect.x = pos.x;
-	d.drect.y = pos.y;
-	d.angle = angle;
+	pos.x = startPos.x;
+	pos.y = startPos.y;
+	angle = startAngle;
 	shot_by_player = shot_by;
-
 }
 
 

@@ -8,20 +8,21 @@ Entity::Entity() {
 Entity::~Entity() {
 }
 
-void Entity::draw() const {
-	drawObject(d, float(d.angle - M_PI / 2));
+void Entity::draw() {
+	d.drect.x = pos.x - d.drect.w / 2;
+	d.drect.y = pos.y - d.drect.h / 2;
+	d.angle = angle - M_PI / 2;
+	drawObject(d);
 }
 
 void Entity::update() {
 	/// friction
 	float frictionCoefficient = 0.05; /// TODO: config
-	acc.x += (-vel.x * frictionCoefficient) * deltaTime;
-	acc.y += (-vel.y * frictionCoefficient) * deltaTime;
+	acc += (-vel * frictionCoefficient) * deltaTime;
 
-	vel = { vel.x + acc.x * deltaTime , vel.y + acc.y * deltaTime };
-	d.drect.x = d.drect.x + vel.x * deltaTime;
-	d.drect.y = d.drect.y + vel.y * deltaTime;
-	acc = { 0, 0 };
+	vel += acc * deltaTime;
+	pos += vel * deltaTime;
+	acc.reset();
 
 	checkBounds();
 }
@@ -36,7 +37,7 @@ void Entity::exit() {
 }
 
 void Entity::checkBounds() {
-	if (d.drect.x > Presenter::m_SCREEN_WIDTH || d.drect.x < 0 || d.drect.y<0 || d.drect.y>Presenter::m_SCREEN_HEIGHT) {
+	if (pos.x > Presenter::m_SCREEN_WIDTH || pos.x < 0 || pos.y<0 || pos.y>Presenter::m_SCREEN_HEIGHT) {
 		toDelete = true;
 	}
 }

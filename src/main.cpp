@@ -23,10 +23,11 @@ int main(int argc, char* argv[])
 	    : put const in method's arguments when adequate
 	    : use std::list for bullets instead of vector
 	    : fix shooting cooldown with some proper approach
-	TODO: m_angle and pos for physics, d.* for drawing
+	    : m_angle and pos for physics, d.* for drawing
 	    : deltaTime
 	    : bullets in Game/Board, out of bounds detection in Game/Board.update();
 	TODO: draw different bullet texture by "shot_by_player"
-	TODO: enemy predict trajectory
+	TODO: enemy predicts player trajectory
 	    : construct enemies and bullets in-place, instead of using temporarys
+	TODO: config file
 */

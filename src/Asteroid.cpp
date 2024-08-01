@@ -23,13 +23,15 @@ void Asteroid::init()
 	model.d.drect.h = model_h;
 	model.d.drect.x = 700;
 	model.d.drect.y = 700;
+	model.pos = { 700, 700 };
+	model.angle = 0;
 	model.d.texture = loadTexture(model_name);
 }
 
 void Asteroid::update() {
-	d.angle = (rand() % 360)*pi/180;
+	angle = (rand() % 360)*pi/180;
 
 
-	d.drect.x += cos(d.angle) * speed;
-	d.drect.y -= sin(d.angle) * speed;
+	pos.x += cos(angle) * speed;
+	pos.y -= sin(angle) * speed;
 }

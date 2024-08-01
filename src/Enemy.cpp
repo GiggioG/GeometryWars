@@ -18,20 +18,20 @@ void Enemy::spawn(const Enemy * m)
 	d = m->d;
 	switch (dir) {
 	case 0:
-		d.drect.x = rand() % Presenter::m_SCREEN_WIDTH;
-		d.drect.y = ( - rand() % 400) - 100;
+		pos.x = rand() % Presenter::m_SCREEN_WIDTH;
+		pos.y = ( - rand() % 400) - 100;
 		break;
 	case 1:
-		d.drect.x = (rand() % 400) + 100 + Presenter::m_SCREEN_WIDTH;
-		d.drect.y = rand()% Presenter::m_SCREEN_HEIGHT;
+		pos.x = (rand() % 400) + 100 + Presenter::m_SCREEN_WIDTH;
+		pos.y = rand()% Presenter::m_SCREEN_HEIGHT;
 		break;
 	case 2:
-		d.drect.x = rand() % Presenter::m_SCREEN_WIDTH;
-		d.drect.y = (rand() % 400) + 100 + Presenter::m_SCREEN_HEIGHT;
+		pos.x = rand() % Presenter::m_SCREEN_WIDTH;
+		pos.y = (rand() % 400) + 100 + Presenter::m_SCREEN_HEIGHT;
 		break;
 	case 3:
-		d.drect.x = -(rand() % 400) - 100;
-		d.drect.y = rand() % Presenter::m_SCREEN_HEIGHT;
+		pos.x = -(rand() % 400) - 100;
+		pos.y = rand() % Presenter::m_SCREEN_HEIGHT;
 		break;
 	}
 }

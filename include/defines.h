@@ -16,21 +16,35 @@ static string SOUND_FOLDER = "sound\\";
 
 const float pi = M_PI;
 
-struct int2
-{
+struct polar {
+	float rad;
+	float angle;
+};
+
+struct int2 {
 	int x;
 	int y;
 
-	void reset()
-	{
+	void reset() {
 		x = 0;
 		y = 0;
 	}
 
-	void set(int2 b)
-	{
+	void set(int2 b) {
 		x = b.x;
 		y = b.y;
+	}
+
+	void operator+=(int2 a)
+	{
+		x += a.x;
+		y += a.y;
+	}
+
+	void operator-=(int2 a)
+	{
+		x -= a.x;
+		y -= a.y;
 	}
 
 	void operator*=(int2 a)
@@ -45,66 +59,67 @@ struct int2
 		y /= a.y;
 	}
 
-	int2 operator*(int2 a)
-	{
-		x *= a.x;
-		y *= a.y;
-
-		return *this; //Returns instance of the current class (After the modifications)
+	int2 operator+(int2 a) const {
+		return { x + a.x, y + a.y };
 	}
 
-	int2 operator/(int2 a)
-	{
-		x /= a.x;
-		y /= a.y;
-
-		return *this;
+	int2 operator-(int2 a) const {
+		return { x - a.x, y - a.y };
 	}
 
-	bool operator!=(int2 a) const {
-		if (x == a.x && y == a.y)
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
+	int2 operator*(int2 a) const {
+		return { x * a.x, y * a.y };
+	}
+
+	int2 operator/(int2 a) const {
+		return { x / a.x, y / a.y };
+	}
+
+	int2 operator*(int a) const {
+		return { x * a, y * a };
+	}
+
+	int2 operator/(int a) const {
+		return { x / a, y / a };
+	}
+
+	int2 operator-() const {
+		return { -x, -y };
 	}
 
 	bool operator==(int2 a) const {
-		if (x == a.x && y == a.y)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return (x == a.x && y == a.y);
+	}
+
+	bool operator!=(int2 a) const {
+		return (x != a.x || y != a.y);
 	}
 };
 
-struct polar {
-	float rad;
-	float angle;
-};
-
-struct float2
-{
-	//!!!IMPORTANT!!!
+struct float2 {
 	float x;
 	float y;
 
-	void reset()
-	{
+	void reset() {
 		x = 0;
 		y = 0;
 	}
 
-	void set(float2 b)
-	{
+	void set(float2 b) {
 		x = b.x;
 		y = b.y;
+	}
+
+	void operator+=(float2 a)
+	{
+		x += a.x;
+		y += a.y;
+	}
+
+	void operator-=(float2 a)
+	{
+		x -= a.x;
+		y -= a.y;
 	}
 
 	void operator*=(float2 a)
@@ -119,111 +134,115 @@ struct float2
 		y /= a.y;
 	}
 
-	float2 operator*(float2 a)
-	{
-		x *= a.x;
-		y *= a.y;
-
-		return *this; //Returns instance of the current class (After the modifications)
+	float2 operator+(float2 a) const {
+		return { x + a.x, y + a.y };
 	}
 
-	float2 operator/(float2 a)
-	{
-		x /= a.x;
-		y /= a.y;
-
-		return *this;
+	float2 operator-(float2 a) const {
+		return { x - a.x, y - a.y };
 	}
 
-	bool operator!=(float2 a) const {
-		if (x == a.x && y == a.y)
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
+	float2 operator*(float2 a) const {
+		return { x * a.x, y * a.y };
+	}
+
+	float2 operator/(float2 a) const {
+		return { x / a.x, y / a.y };
+	}
+
+	float2 operator*(float a) const {
+		return { x * a, y * a };
+	}
+
+	float2 operator/(float a) const {
+		return { x / a, y / a };
+	}
+
+	float2 operator-() const {
+		return { -x, -y };
 	}
 
 	bool operator==(float2 a) const {
-		if (x == a.x && y == a.y)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return (x == a.x && y == a.y);
+	}
+
+	bool operator!=(float2 a) const {
+		return (x != a.x || y != a.y);
 	}
 };
 
-struct double2
-{
-	//!!!IMPORTANT!!!
+struct double2 {
 	double x;
 	double y;
 
-	void reset()
-	{
+	void reset() {
 		x = 0;
 		y = 0;
 	}
 
-	void set(const double2 b)
-	{
+	void set(double2 b) {
 		x = b.x;
 		y = b.y;
 	}
 
-	void operator*=(const double2 a)
+	void operator+=(double2 a)
+	{
+		x += a.x;
+		y += a.y;
+	}
+
+	void operator-=(double2 a)
+	{
+		x -= a.x;
+		y -= a.y;
+	}
+
+	void operator*=(double2 a)
 	{
 		x *= a.x;
 		y *= a.y;
 	}
 
-	void operator/=(const double2 a)
+	void operator/=(double2 a)
 	{
 		x /= a.x;
 		y /= a.y;
 	}
 
-	double2 operator*(const double2 a)
-	{
-		x *= a.x;
-		y *= a.y;
-
-		return *this; //Returns instance of the current class (After the modifications)
+	double2 operator+(double2 a) const {
+		return { x + a.x, y + a.y };
 	}
 
-	double2 operator/(const double2 a)
-	{
-		x /= a.x;
-		y /= a.y;
-
-		return *this;
+	double2 operator-(double2 a) const {
+		return { x - a.x, y - a.y };
 	}
 
-	bool operator!=(const double2 a) const {
-		if (x == a.x && y == a.y)
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
+	double2 operator*(double2 a) const {
+		return { x * a.x, y * a.y };
 	}
 
-	bool operator==(const double2 a) const {
-		if (x == a.x && y == a.y)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+	double2 operator/(double2 a) const {
+		return { x / a.x, y / a.y };
+	}
+
+	double2 operator*(double a) const {
+		return { x * a, y * a };
+	}
+
+	double2 operator/(double a) const {
+		return { x / a, y / a };
+	}
+
+	double2 operator-() const {
+		return { -x, -y };
+	}
+
+	bool operator==(double2 a) const {
+		return (x == a.x && y == a.y);
+	}
+
+	bool operator!=(double2 a) const {
+		return (x != a.x || y != a.y);
 	}
 };
 

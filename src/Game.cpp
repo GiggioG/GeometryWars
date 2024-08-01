@@ -23,9 +23,6 @@ void Game::init()
 	Asteroid::model.init();
 	Bullet::model.init();
 	//m_enemy.spawn();
-	Chaser* newChaser = new Chaser;
-	newChaser->spawn(&Chaser::model);
-	m_enemies.push_back(newChaser);
 }
 
 void Game::destroy()
@@ -60,6 +57,16 @@ void Game::run()
 			++it;
 		}
 	}
+
+	if (!InputManager::m_joystickConnected) { /// TODO: this is only for developement debugging
+		if (InputManager::m_keyboardState[SDL_SCANCODE_B]) {
+			//cout << "b" << endl;
+
+			Chaser* newChaser = new Chaser;
+			newChaser->spawn(&Chaser::model);
+			m_enemies.push_back(newChaser);
+		}
+	}else
 	
 	if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_A)) {
 		//cout << "a" << endl;
@@ -87,5 +94,5 @@ void Game::run()
 }
 
 float2 Game::getCoords() {
-	return { m_player.d.drect.x, m_player.d.drect.y };
+	return m_player.pos;
 }
