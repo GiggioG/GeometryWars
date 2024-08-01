@@ -162,6 +162,90 @@ struct float2
 	}
 };
 
+struct double2
+{
+	//!!!IMPORTANT!!!
+	double x;
+	double y;
+
+	void reset()
+	{
+		x = 0;
+		y = 0;
+	}
+
+	void set(double2 b)
+	{
+		x = b.x;
+		y = b.y;
+	}
+
+	void operator*=(double2 a)
+	{
+		x *= a.x;
+		y *= a.y;
+	}
+
+	void operator/=(double2 a)
+	{
+		x /= a.x;
+		y /= a.y;
+	}
+
+	double2 operator*(double2 a)
+	{
+		x *= a.x;
+		y *= a.y;
+
+		return *this; //Returns instance of the current class (After the modifications)
+	}
+
+	double2 operator/(double2 a)
+	{
+		x /= a.x;
+		y /= a.y;
+
+		return *this;
+	}
+
+	bool operator!=(double2 a)
+	{
+		if (x == a.x && y == a.y)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
+	bool operator==(double2 a)
+	{
+		if (x == a.x && y == a.y)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+};
+
+struct Rect {
+	double x, y;
+	double w, h;
+	SDL_Rect toSdlRect() {
+		return { (int)x, (int)y, (int)w, (int)h };
+	}
+};
+
+struct RotatedRect {
+	Rect rect;
+	double angle;
+};
+
 struct Drawable
 {
 	SDL_Texture* texture = nullptr;

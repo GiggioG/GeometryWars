@@ -7,7 +7,7 @@ Player::Player(){}
 Player::~Player(){}
 
 void Player::init() {
-	m_angle = toRad(30);
+	m_angle = 30*pi/180;
 	d.drect.x = Presenter::m_SCREEN_WIDTH / 2;
 	d.drect.y = Presenter::m_SCREEN_HEIGHT / 2;
 	d.drect.w = 100;
