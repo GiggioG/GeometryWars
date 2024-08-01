@@ -18,11 +18,11 @@ void Chaser::init()
 	model_h = 100;
 	model_name = "Player1.bmp";
 
-	model.d.drect.w = model_w;
-	model.d.drect.h = model_h;
-	model.d.drect.x = 700;
-	model.d.drect.y = 700;
-	model.d.texture = loadTexture(model_name);
+	d.drect.w = model_w;
+	d.drect.h = model_h;
+	d.drect.x = 700;
+	d.drect.y = 700;
+	d.texture = loadTexture(model_name);
 }
 
 void Chaser::update() {
