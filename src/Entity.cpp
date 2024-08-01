@@ -27,6 +27,7 @@ void Entity::update() {
 
 void Entity::init()
 {
+	toDelete = false;
 }
 
 void Entity::exit()

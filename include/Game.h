@@ -15,7 +15,7 @@ public:
 
 	Board m_board;
 	static Player m_player;
-	Enemy m_enemy;
+	static list<Enemy> m_enemies;
 	static list<Bullet> m_bullets;
 
 	void init();

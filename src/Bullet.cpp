@@ -14,9 +14,10 @@ void Bullet::update()
 	d.drect.x += cos(d.angle)*speed;
 	d.drect.y -= sin(d.angle)*speed;
 	if (d.drect.x > Presenter::m_SCREEN_WIDTH || d.drect.x < 0 || d.drect.y<0 || d.drect.y>Presenter::m_SCREEN_HEIGHT) {
-		out_of_bounds = true;
+		toDelete = true;
 	}
 	//D(speed);
+	//D(d.drect.x);
 	//D(d.drect.y);
 	//D(d.angle);
 }
@@ -37,6 +38,7 @@ void Bullet::init()
 
 void Bullet::spawn(float2 pos, float angle, bool shot_by)
 {
+	toDelete = false;
 	d = model.d;
 	speed = model.speed;
 	d.drect.x = pos.x;
