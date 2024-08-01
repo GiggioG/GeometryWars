@@ -13,7 +13,7 @@ public:
 
 	void init();
 	void update();
-	void draw() const ;
+	void draw() const;
 	void destroy();
 
 	static void drawObject(SDL_Texture* texture);

@@ -12,7 +12,7 @@ void Player::init() {
 	angle = 30*pi/180;
 	pos.x = Presenter::m_SCREEN_WIDTH / 2;
 	pos.y = Presenter::m_SCREEN_HEIGHT / 2;
-	d.drect.w = 100;
+	d.drect.w = 100; /// TODO: config
 	d.drect.h = 100;
 	d.texture = loadTexture("Player2.bmp");
 }

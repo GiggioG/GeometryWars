@@ -32,7 +32,7 @@ void Entity::init() {
 	toDelete = true;
 }
 
-void Entity::exit() {
+void Entity::destroy() {
 	SDL_DestroyTexture(d.texture);
 }
 

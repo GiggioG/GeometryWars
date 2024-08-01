@@ -26,6 +26,8 @@ int main(int argc, char* argv[])
 	    : m_angle and pos for physics, d.* for drawing
 	    : deltaTime
 	    : bullets in Game/Board, out of bounds detection in Game/Board.update();
+	    : make destruct, destroy and exit all to "destroy"
+	TODO: fix all of Redi-1's hardcoding that does not require a config file
 	TODO: draw different bullet texture by "shot_by_player"
 	TODO: enemy predicts player trajectory
 	    : construct enemies and bullets in-place, instead of using temporarys

@@ -22,6 +22,9 @@ void Bullet::update() {
 }
 
 void Bullet::init() {
+	/// TODO: config for these
+	/// TODO: 700 is arbitrary, do something else more sensical
+
 	model_w = 50;
 	model_h = 50;
 	model_name = "Shield.bmp";

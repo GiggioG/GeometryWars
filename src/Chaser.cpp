@@ -11,8 +11,10 @@ Chaser::~Chaser()
 {
 }
 
-void Chaser::init()
-{
+void Chaser::init() {
+	/// TODO: config for these
+	/// TODO: 700 is arbitrary, do something else more sensical
+
 	health = 25;
 	model_w = 100;
 	model_h = 100;
@@ -33,7 +35,7 @@ void Chaser::update() {
 
 	angle = atan2(-diff.y, diff.x);
 
-	acc.x += cos(angle) * 0.4;
+	acc.x += cos(angle) * 0.4; /// TODO: config
 	acc.y -= sin(angle) * 0.4;
 
 	Entity::update();
