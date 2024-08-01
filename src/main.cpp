@@ -28,4 +28,5 @@ int main(int argc, char* argv[])
 	    : bullets in Game/Board, out of bounds detection in Game/Board.update();
 	TODO: draw different bullet texture by "shot_by_player"
 	TODO: enemy predict trajectory
+	TODO: construct enemies and bullets in-place, instead of using temporarys
 */

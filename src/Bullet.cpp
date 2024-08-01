@@ -14,7 +14,7 @@ Bullet::~Bullet()
 void Bullet::update()
 {
 	d.drect.x += cos(d.angle) * speed * deltaTime;
-	d.drect.y -= sin(d.angle)*speed * deltaTime;
+	d.drect.y -= sin(d.angle) * speed * deltaTime;
 	checkBounds();
 	//D(speed);
 	//D(d.drect.y);

@@ -38,8 +38,7 @@ void Player::update() {
 	d.angle = m_angle;
 	m_aiming = (InputManager::m_joyRightStickPol.rad != 0);
 	Uint64 currTime = SDL_GetPerformanceCounter();
-	//if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_RIGHT) && (currTime - lastShotTime) > 800000.0f * deltaTime) {
-	if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_RIGHT) && (currTime - lastShotTime) > 8000000.0f) {
+	if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_RIGHT) && (currTime - lastShotTime) > 800000.0f) {
 		shoot();
 		lastShotTime = currTime;
 	}

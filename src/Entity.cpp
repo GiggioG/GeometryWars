@@ -2,12 +2,10 @@
 
 extern float deltaTime;
 
-Entity::Entity()
-{
+Entity::Entity() {
 }
 
-Entity::~Entity()
-{
+Entity::~Entity() {
 }
 
 void Entity::draw()  {
@@ -29,12 +27,11 @@ void Entity::update() {
 }
 
 
-void Entity::init()
-{
+void Entity::init() {
+	toDelete = true;
 }
 
-void Entity::exit()
-{
+void Entity::exit() {
 	SDL_DestroyTexture(d.texture);
 }
 
