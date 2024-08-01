@@ -12,8 +12,7 @@ public:
 	int model_w;
 	int model_h;
 	
-	void init();
-	void spawn();
 	void exit();
-	void checkBounds() {}
+	void spawn();
+	void checkBounds();
 };

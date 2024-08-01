@@ -1,6 +1,8 @@
 #include "Chaser.h"
 #include "Game.h"
 
+Chaser Chaser::model = Chaser();
+
 Chaser::Chaser()
 {
 }
@@ -15,7 +17,12 @@ void Chaser::init()
 	model_w = 100;
 	model_h = 100;
 	model_name = "Player1.bmp";
-	Enemy::init();
+
+	model.d.drect.w = model_w;
+	model.d.drect.h = model_h;
+	model.d.drect.x = 700;
+	model.d.drect.y = 700;
+	model.d.texture = loadTexture(model_name);
 }
 
 void Chaser::update() {

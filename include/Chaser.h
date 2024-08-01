@@ -6,6 +6,8 @@ class Chaser : public Mover {
 public:
 	Chaser();
 	~Chaser();
+	
+	static Chaser model;
 
 	void init();
 	void update();
