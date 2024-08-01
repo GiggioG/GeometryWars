@@ -25,9 +25,4 @@ void Asteroid::update() {
 
 	d.drect.x += cos(d.angle) * speed;
 	d.drect.y -= sin(d.angle) * speed;
-	cout << "test" << endl;
-
-
-	
-
 }
