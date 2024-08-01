@@ -8,11 +8,8 @@ Entity::~Entity()
 {
 }
 
-void Entity::draw() const {
-	float angle;
-	Drawable temp_d = d;
-	temp_d.angle = (d.angle - M_PI / 2);
-	drawObject(temp_d);
+void Entity::draw()  {
+	drawObject(d, float(d.angle - M_PI / 2));
 }
 
 void Entity::update() {

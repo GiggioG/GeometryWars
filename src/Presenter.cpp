@@ -52,6 +52,11 @@ void Presenter::drawObject(Drawable& drawable) {
 	SDL_RenderCopyExF(m_mainRenderer, drawable.texture, &drawable.srect, &drawable.drect, degrees, NULL, drawable.flip);
 }
 
+void Presenter::drawObject(Drawable& drawable, float angle) {
+	float degrees = -angle * 180 / M_PI;
+	SDL_RenderCopyExF(m_mainRenderer, drawable.texture, &drawable.srect, &drawable.drect, degrees, NULL, drawable.flip);
+}
+
 void Presenter::improveRenderer()
 {
 	SDL_DisplayMode DM;
