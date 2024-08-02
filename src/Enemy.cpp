@@ -7,12 +7,11 @@ Enemy::~Enemy() {}
 
 void Enemy::spawn(const Enemy * m)
 {
-	speed= m->speed;
-	d = m->d;
-	int dir = rand() % 4;
 	d = m->d;
 	health = m->health;
 	speed = m->speed;
+	model_name = m->model_name;
+	int dir = rand() % 4;
 	switch (dir) {
 	case 0:
 		pos.x = rand() % Presenter::m_SCREEN_WIDTH;

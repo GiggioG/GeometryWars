@@ -32,4 +32,7 @@ int main(int argc, char* argv[])
 	TODO: enemy predicts player trajectory
 	    : construct enemies and bullets in-place, instead of using temporarys
 	TODO: config file
+	TODO: asteroids despawn when out of bounds (but not before entering the screen)
+	      (or it can bounce, idk)
+	TODO: finish input-manager library for d-pad
 */

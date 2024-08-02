@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <chrono>
 #include <SDL.h>
 
 #define D(x) cerr << #x << " = " << (x) << " | " << __LINE__ << endl;
@@ -15,6 +16,8 @@ static string CONFIG_FOLDER = "config\\";
 static string SOUND_FOLDER = "sound\\";
 
 const float pi = M_PI;
+
+typedef Uint32 Time;
 
 struct polar {
 	float rad;

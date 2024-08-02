@@ -8,6 +8,18 @@ Entity::Entity() {
 Entity::~Entity() {
 }
 
+RotatedRect Entity::getRotatedRect() {
+	return {
+		{
+			pos.x - d.drect.w / 2,
+			pos.y - d.drect.h / 2,
+			d.drect.w,
+			d.drect.h
+		},
+		angle
+	};
+}
+
 void Entity::draw() {
 	d.drect.x = pos.x - d.drect.w / 2;
 	d.drect.y = pos.y - d.drect.h / 2;

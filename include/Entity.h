@@ -18,6 +18,7 @@ public:
 	bool toDelete = false;
 
 	virtual void init();
+	virtual RotatedRect getRotatedRect();
 	virtual void draw();
 	virtual void update();
 	virtual void destroy();

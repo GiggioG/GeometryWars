@@ -8,6 +8,8 @@ SDL_Renderer* Presenter::m_mainRenderer = nullptr;
 int Presenter::m_SCREEN_WIDTH = 0;
 int Presenter::m_SCREEN_HEIGHT = 0;
 
+SDL_Texture* redOutline = nullptr;
+
 void Presenter::init()
 {
 	m_SCREEN_WIDTH = 1920;
@@ -21,6 +23,7 @@ void Presenter::init()
 	m_mainRenderer = SDL_CreateRenderer(m_mainWindow, -1, SDL_RENDERER_PRESENTVSYNC);
 
 	improveRenderer();
+	redOutline = loadTexture("RedOutline.bmp");
 }
 
 void Presenter::update()
@@ -35,6 +38,7 @@ void Presenter::draw() const {
 }
 
 void Presenter::destroy() {
+	SDL_DestroyTexture(redOutline);
 	SDL_DestroyRenderer(m_mainRenderer);
 	SDL_DestroyWindow(m_mainWindow);
 	m_mainRenderer = nullptr;
@@ -49,11 +53,13 @@ void Presenter::drawObject(SDL_Texture* texture)
 void Presenter::drawObject(const Drawable& drawable) {
 	float degrees = -drawable.angle * 180 / M_PI;
 	SDL_RenderCopyExF(m_mainRenderer, drawable.texture, &drawable.srect, &drawable.drect, degrees, NULL, drawable.flip);
+	SDL_RenderCopyExF(m_mainRenderer, redOutline, &drawable.srect, &drawable.drect, degrees, NULL, drawable.flip);
 }
 
 void Presenter::drawObject(const Drawable& drawable, float angle) {
 	float degrees = -angle * 180 / M_PI;
 	SDL_RenderCopyExF(m_mainRenderer, drawable.texture, &drawable.srect, &drawable.drect, degrees, NULL, drawable.flip);
+	SDL_RenderCopyExF(m_mainRenderer, redOutline, &drawable.srect, &drawable.drect, degrees, NULL, drawable.flip);
 }
 
 void Presenter::improveRenderer()

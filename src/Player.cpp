@@ -15,10 +15,10 @@ void Player::init() {
 	d.drect.w = 100; /// TODO: config
 	d.drect.h = 100;
 	d.texture = loadTexture("Player2.bmp");
-	health = 100;
+	health = 1000;
 }
 
-Uint64 lastShotTime = 0;
+Time lastShotTime;
 
 void Player::update() {
 	if (!InputManager::m_joystickConnected) { /// TODO: this is only for developement debugging
@@ -40,14 +40,15 @@ void Player::update() {
 		acc.y -= sin(angle) * speed;
 	}
 	m_aiming = (InputManager::m_joyRightStickPol.rad != 0);
-	Uint64 currTime = SDL_GetPerformanceCounter();
-	if (!InputManager::m_joystickConnected && InputManager::m_keyboardState[SDL_SCANCODE_SPACE] && (currTime - lastShotTime) > 800000.0f) { /// TODO: this is only for developement debugging
+	Time currTime = SDL_GetTicks();
+
+	if (!InputManager::m_joystickConnected && InputManager::m_keyboardState[SDL_SCANCODE_SPACE] && (currTime - lastShotTime) > 200) { /// TODO: this is only for developement debugging
 		shoot();
 		(*Game::m_bullets.rbegin())->angle = angle;
 		lastShotTime = currTime;
 	}else
 
-	if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_RIGHT) && (currTime - lastShotTime) > 800000.0f) {
+	if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_RIGHT) && (currTime - lastShotTime) > 50) {
 		shoot();
 		lastShotTime = currTime;
 	}

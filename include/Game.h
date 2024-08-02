@@ -20,7 +20,13 @@ public:
 	void destroy();
 	void run();
 	static float2 getCoords();
+	void summonWaveIfNecessary();
 private:
 	void collideBullets();
 	void collideEnemies();
+	Time lastWaveDefeated = 0;
+	int waveNumber = 0;
+
+	template <typename En>
+	void summon(int amount = 1);
 };
