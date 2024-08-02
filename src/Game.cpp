@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "InputManager.h"
 #include "Chaser.h"
+#include "SChaser.h"
 #include "Asteroid.h"
 #include "World.h"
 #include "Bouncer.h"
@@ -21,6 +22,8 @@ void Game::init() {
 	Asteroid::model.init();
 	Bouncer::model.init();
 	Bullet::model.init();
+	SChaser::model.init();
+	//m_enemy.spawn();
 }
 
 void Game::destroy() {}
@@ -46,6 +49,11 @@ void Game::run() {
 	}
 	if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_B)) {
 		summon<Bouncer>();
+	}
+	if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_Y)) {
+		SChaser* newSChaser = new SChaser;
+		newSChaser->spawn(&SChaser::model);
+		m_enemies.push_back(newSChaser);
 	}
 	m_board.update();
 	m_player.update();

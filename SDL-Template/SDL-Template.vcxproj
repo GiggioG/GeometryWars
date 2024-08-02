@@ -34,6 +34,7 @@
     <ClInclude Include="..\include\Mover.h" />
     <ClInclude Include="..\include\Player.h" />
     <ClInclude Include="..\include\Presenter.h" />
+    <ClInclude Include="..\include\SChaser.h" />
     <ClInclude Include="..\include\Shooter.h" />
     <ClInclude Include="..\include\SoundManager.h" />
     <ClInclude Include="..\include\State.h" />
@@ -57,6 +58,7 @@
     <ClCompile Include="..\src\Mover.cpp" />
     <ClCompile Include="..\src\Player.cpp" />
     <ClCompile Include="..\src\Presenter.cpp" />
+    <ClCompile Include="..\src\SChaser.cpp" />
     <ClCompile Include="..\src\Shooter.cpp" />
     <ClCompile Include="..\src\SoundManager.cpp" />
     <ClCompile Include="..\src\State.cpp" />

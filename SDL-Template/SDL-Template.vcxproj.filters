@@ -64,6 +64,9 @@
     <ClCompile Include="..\src\EndScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\SChaser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Board.h">
@@ -127,6 +130,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\include\EndScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SChaser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
