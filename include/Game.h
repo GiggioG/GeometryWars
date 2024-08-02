@@ -6,10 +6,8 @@
 #include "Enemy.h"
 #include <list>
 
-class Game : public State
-{
+class Game : public State {
 public:
-
 	Game();
 	~Game();
 
@@ -22,4 +20,7 @@ public:
 	void destroy();
 	void run();
 	static float2 getCoords();
+private:
+	void collideBullets();
+	void collideEnemies();
 };

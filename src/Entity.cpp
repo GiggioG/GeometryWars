@@ -41,3 +41,9 @@ void Entity::checkBounds() {
 		toDelete = true;
 	}
 }
+
+void Entity::checkHealth() {
+	if (health <= 0) {
+		toDelete = true;
+	}
+}

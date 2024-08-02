@@ -39,7 +39,7 @@ void Bullet::init() {
 	model.d.texture = loadTexture(model_name);
 }
 
-void Bullet::spawn(float2 startPos, float startAngle, bool shot_by) {
+void Bullet::spawn(float2 startPos, float startAngle, bool shot_by, float damageAmount) {
 	toDelete = false;
 	d = model.d;
 	speed = model.speed;
@@ -47,6 +47,7 @@ void Bullet::spawn(float2 startPos, float startAngle, bool shot_by) {
 	pos.y = startPos.y;
 	angle = startAngle;
 	shot_by_player = shot_by;
+	damage = damageAmount;
 }
 
 

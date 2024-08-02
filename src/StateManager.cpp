@@ -15,12 +15,10 @@ StateManager::~StateManager()
 	m_currState = nullptr;
 }
 
-void StateManager::changeGameState(GAME_STATE _state)
-{
+void StateManager::changeGameState(GAME_STATE _state) {
 	//destroyLastState();
 
 	m_gameState = _state;
-	
 	initNewState();
 }
 
@@ -30,6 +28,8 @@ void StateManager::initNewState()
 	{
 	case GAME_STATE::NONE:
 		world.destroy();
+		
+		return;
 		break;
 	case GAME_STATE::GAME:
 		m_currState = m_game;
@@ -38,6 +38,9 @@ void StateManager::initNewState()
 		m_titleScreen = new TitleScreen();
 		m_currState = m_titleScreen;
 		break;
+	case GAME_STATE::END_SCREEN:
+		m_endScreen = new EndScreen;
+		m_currState = m_endScreen;
 	default:
 		break;
 	}
@@ -48,7 +51,6 @@ void StateManager::initNewState()
 void StateManager::init(GAME_STATE _state)
 {
 	m_gameState = _state;
-
 	m_game = new Game();
 
 	initNewState();

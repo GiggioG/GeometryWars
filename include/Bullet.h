@@ -12,8 +12,9 @@ public:
 	int model_w;
 	int model_h;
 	bool shot_by_player;
+	float damage;
 
 	void update();
 	void init();
-	void spawn(float2 startPos, float startAngle, bool shot_by);
+	void spawn(float2 startPos, float startAngle, bool shot_by, float damageAmount);
 };

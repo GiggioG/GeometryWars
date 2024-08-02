@@ -15,7 +15,7 @@ void Chaser::init() {
 	/// TODO: config for these
 	/// TODO: 700 is arbitrary, do something else more sensical
 
-	health = 25;
+	model.health = 25;
 	model_w = 100;
 	model_h = 100;
 	model_name = "Player1.bmp";

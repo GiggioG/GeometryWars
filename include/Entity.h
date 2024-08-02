@@ -22,4 +22,5 @@ public:
 	virtual void update();
 	virtual void destroy();
 	virtual void checkBounds();
+	virtual void checkHealth();
 };

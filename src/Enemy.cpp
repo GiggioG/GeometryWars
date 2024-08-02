@@ -2,20 +2,15 @@
 #include "Game.h"
 
 
-Enemy::Enemy()
-{
-}
-
-Enemy::~Enemy()
-{
-}
-
-
+Enemy::Enemy() {}
+Enemy::~Enemy() {}
 
 void Enemy::spawn(const Enemy * m)
 {
 	int dir = rand() % 4;
 	d = m->d;
+	health = m->health;
+	speed = m->speed;
 	switch (dir) {
 	case 0:
 		pos.x = rand() % Presenter::m_SCREEN_WIDTH;

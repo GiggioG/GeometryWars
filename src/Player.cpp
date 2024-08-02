@@ -15,6 +15,7 @@ void Player::init() {
 	d.drect.w = 100; /// TODO: config
 	d.drect.h = 100;
 	d.texture = loadTexture("Player2.bmp");
+	health = 100;
 }
 
 Uint64 lastShotTime = 0;
@@ -58,9 +59,10 @@ void Player::update() {
 	if (pos.y >= Presenter::m_SCREEN_HEIGHT) { pos.y = Presenter::m_SCREEN_HEIGHT - 1; }
 }
 
-void Player::shoot()
-{
+void Player::shoot() {
 	Bullet* newBullet = new Bullet;
-	newBullet->spawn(pos, InputManager::m_joyRightStickPol.angle, true);
+	newBullet->spawn(pos, InputManager::m_joyRightStickPol.angle, true, 10);
 	Game::m_bullets.push_back(newBullet);
 }
+
+void Player::checkBounds() {}

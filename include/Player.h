@@ -15,4 +15,5 @@ public:
 	void init();
 	void update();
 	void shoot();
+	void checkBounds();
 };

@@ -30,7 +30,7 @@ SDL_Texture* LoadTexture(string bmpFile, SDL_Renderer* renderer)
             
             cout << "NO TEXTURE LOADED: " << bmpFile << endl;
 
-            //bmpFile = IMG_FOLDER + cfgm->cfg["TEXTURE_NOT_LOADED_TEXTURE"].s;
+            bmpFile = IMG_FOLDER + "Null.bmp";
 
             SDL_Surface* loadingSurface = SDL_LoadBMP(bmpFile.c_str());
             texture = SDL_CreateTextureFromSurface(renderer, loadingSurface);
