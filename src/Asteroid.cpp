@@ -34,7 +34,6 @@ void Asteroid::init()
 void Asteroid::update() {
 	angle = (rand() % 360)*pi/180;
 
-
 	pos.x += cos(angle) * speed;
 	pos.y -= sin(angle) * speed;
 }

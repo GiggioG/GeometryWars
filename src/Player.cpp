@@ -54,8 +54,8 @@ void Player::update() {
 
 	if (pos.x < 0) { pos.x = 0; }
 	if (pos.y < 0) { pos.y = 0; }
-	if (pos.x >= Presenter::m_SCREEN_WIDTH - d.drect.w) { pos.x = Presenter::m_SCREEN_WIDTH - d.drect.w -1; }
-	if (pos.y >= Presenter::m_SCREEN_HEIGHT - d.drect.h) { pos.y = Presenter::m_SCREEN_HEIGHT - d.drect.h -1; }
+	if (pos.x >= Presenter::m_SCREEN_WIDTH) { pos.x = Presenter::m_SCREEN_WIDTH - 1; }
+	if (pos.y >= Presenter::m_SCREEN_HEIGHT) { pos.y = Presenter::m_SCREEN_HEIGHT - 1; }
 }
 
 void Player::shoot()

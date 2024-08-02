@@ -69,15 +69,14 @@ void Game::run()
 	}else
 	
 	if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_A)) {
-		//cout << "a" << endl;
-		
-	}
-	if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_B)) {
-		//cout << "b" << endl;
-
 		Asteroid* newAsteroid = new Asteroid;
 		newAsteroid->spawn(&Asteroid::model);
 		m_enemies.push_back(newAsteroid);
+	}
+	if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_B)) {
+		Chaser* newChaser = new Chaser;
+		newChaser->spawn(&Chaser::model);
+		m_enemies.push_back(newChaser);
 	}
 
 	
