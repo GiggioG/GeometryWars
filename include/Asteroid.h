@@ -10,4 +10,5 @@ public:
 	static Asteroid model;
 	void init();
 	void update();
+	void spawn(const Asteroid* model);
 };

@@ -14,8 +14,10 @@ Enemy::~Enemy()
 
 void Enemy::spawn(const Enemy * m)
 {
-	int dir = rand() % 4;
+	speed= m->speed;
 	d = m->d;
+	int dir = rand() % 4;
+	
 	switch (dir) {
 	case 0:
 		pos.x = rand() % Presenter::m_SCREEN_WIDTH;

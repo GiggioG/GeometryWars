@@ -37,7 +37,7 @@ void Entity::destroy() {
 }
 
 void Entity::checkBounds() {
-	if (pos.x > Presenter::m_SCREEN_WIDTH || pos.x < 0 || pos.y<0 || pos.y>Presenter::m_SCREEN_HEIGHT) {
+	if (pos.x - (d.drect.w/2) > Presenter::m_SCREEN_WIDTH || pos.x + (d.drect.w / 2) < 0 || pos.y + (d.drect.h / 2) <0 || pos.y - (d.drect.h / 2) >Presenter::m_SCREEN_HEIGHT) {
 		toDelete = true;
 	}
 }
