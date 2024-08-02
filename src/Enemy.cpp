@@ -7,6 +7,8 @@ Enemy::~Enemy() {}
 
 void Enemy::spawn(const Enemy * m)
 {
+	speed= m->speed;
+	d = m->d;
 	int dir = rand() % 4;
 	d = m->d;
 	health = m->health;
@@ -32,5 +34,4 @@ void Enemy::spawn(const Enemy * m)
 }
 
 void Enemy::destroy() {}
-
 void Enemy::checkBounds() {}

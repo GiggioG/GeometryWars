@@ -3,19 +3,16 @@
 #include "Chaser.h"
 #include "Asteroid.h"
 #include "World.h"
+#include "Bouncer.h"
 extern World world;
 
 Player Game::m_player = Player();
 list<Bullet*> Game::m_bullets = list<Bullet*>();
 list<Enemy*> Game::m_enemies = list<Enemy*>();
 
-Game::Game()
-{
-}
+Game::Game() {}
 
-Game::~Game()
-{
-}
+Game::~Game() {}
 
 void Game::init()
 {
@@ -23,14 +20,12 @@ void Game::init()
 	m_player.init();
 	Chaser::model.init();
 	Asteroid::model.init();
+	Bouncer::model.init();
 	Bullet::model.init();
 	//m_enemy.spawn();
 }
 
-void Game::destroy()
-{
-
-}
+void Game::destroy() {}
 
 void Game::run() {
 	if (!InputManager::m_joystickConnected) { /// TODO: this is only for developement debugging
@@ -48,12 +43,16 @@ void Game::run() {
 		newAsteroid->spawn(&Asteroid::model);
 		m_enemies.push_back(newAsteroid);
 	}
-	if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_B)) {
+	if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_X)) {
 		Chaser* newChaser = new Chaser;
 		newChaser->spawn(&Chaser::model);
 		m_enemies.push_back(newChaser);
 	}
-
+	if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_B)) {
+		Bouncer* newBouncer = new Bouncer;
+		newBouncer->spawn(&Bouncer::model);
+		m_enemies.push_back(newBouncer);
+	}
 	m_board.update();
 	m_player.update();
 	for (list<Bullet*>::iterator it = m_bullets.begin(); it != m_bullets.end();) {

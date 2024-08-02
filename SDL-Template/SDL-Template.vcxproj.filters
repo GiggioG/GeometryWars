@@ -58,6 +58,9 @@
     <ClCompile Include="..\src\Asteroid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Bouncer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\src\EndScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -118,6 +121,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\include\Asteroid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Bouncer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\include\EndScreen.h">

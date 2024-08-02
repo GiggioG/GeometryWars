@@ -14,7 +14,7 @@ Asteroid::~Asteroid()
 void Asteroid::init()
 {
 	/// TODO: config for these
-	speed = 1;
+	speed = 2;
 	health = 75;
 	model_w = 200;
 	model_h = 200;
@@ -32,8 +32,14 @@ void Asteroid::init()
 }
 
 void Asteroid::update() {
-	angle = (rand() % 360)*pi/180;
-
 	pos.x += cos(angle) * speed;
 	pos.y -= sin(angle) * speed;
+}
+
+void Asteroid::spawn(const Asteroid* model) {
+	int rand_r = rand() % Presenter::m_SCREEN_HEIGHT - Presenter::m_SCREEN_HEIGHT / 2;
+	int rand_c = rand() % Presenter::m_SCREEN_WIDTH - Presenter::m_SCREEN_WIDTH / 2;
+
+	angle = atan2(-rand_r, rand_c);
+	Enemy::spawn(model);
 }
