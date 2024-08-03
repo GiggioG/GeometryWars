@@ -51,9 +51,7 @@ void Game::run() {
 		summon<Bouncer>();
 	}
 	if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_Y)) {
-		SChaser* newSChaser = new SChaser;
-		newSChaser->spawn(&SChaser::model);
-		m_enemies.push_back(newSChaser);
+		summon<SChaser>();
 	}
 	m_board.update();
 	m_player.update();
@@ -82,7 +80,7 @@ void Game::run() {
 		}
 	}
 
-	summonWaveIfNecessary();
+	//summonWaveIfNecessary();
 
 	collideBullets();
 	collideEnemies();

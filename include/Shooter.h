@@ -7,5 +7,11 @@ public:
 	Shooter();
 	 ~Shooter();
 
+	 static Shooter model;
+
+	 int range;
+	 int bullet_damage;
+
 	void shoot();
+	void spawn(const Shooter* m);
 };

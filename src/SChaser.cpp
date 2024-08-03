@@ -19,8 +19,8 @@ void SChaser::init() {
 	model_w = 100;
 	model_h = 100;
 	model_name = "Player_AI.bmp";
-	bullet_dmg = 1;
-	range=60;
+	bullet_damage = 0;
+	model.range=600;
 
 	model.d.drect.w = model_w;
 	model.d.drect.h = model_h;
@@ -37,15 +37,16 @@ void SChaser::update() {
 
 	angle = atan2(-diff.y, diff.x);
 
-	acc.x += cos(angle) * 0.4; /// TODO: config
-	acc.y -= sin(angle) * 0.4;
 	
-	if (range*range>diff.x*diff.x+diff.y*diff.y) {
+	
+	if (range*range<diff.x*diff.x+diff.y*diff.y) {
 		Entity::update();
+		acc.x += cos(angle) * 0.4; /// TODO: config
+		acc.y -= sin(angle) * 0.4;
 	}
 	else {
-		D(diff.x);
-		D(diff.y);
+		//D(diff.x);
+		//D(diff.y);
 		shoot();
 	}
 	

@@ -12,8 +12,12 @@ public:
 
 	bool m_aiming;
 
+	Drawable aimer;
+
 	void init();
 	void update();
 	void shoot();
 	void checkBounds();
+	void draw();
+
 };

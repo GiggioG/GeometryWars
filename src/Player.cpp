@@ -15,7 +15,10 @@ void Player::init() {
 	d.drect.w = 100; /// TODO: config
 	d.drect.h = 100;
 	d.texture = loadTexture("Player2.bmp");
-	health = 1000;
+	health = 1000000;
+
+	aimer = d;
+	aimer.texture = loadTexture("Aiming.bmp");
 }
 
 Time lastShotTime;
@@ -30,6 +33,9 @@ void Player::update() {
 		}
 	}else
 
+	if (InputManager::m_joyRightStickPol.rad != 0) {
+		aimer.angle = InputManager::m_joyRightStickPol.angle;
+	}
 	if (InputManager::m_joyLeftStickPol.rad != 0) {
 		angle = InputManager::m_joyLeftStickPol.angle;
 
@@ -40,11 +46,13 @@ void Player::update() {
 		acc.y -= sin(angle) * speed;
 	}
 	m_aiming = (InputManager::m_joyRightStickPol.rad != 0);
+
 	Time currTime = SDL_GetTicks();
 
 	if (!InputManager::m_joystickConnected && InputManager::m_keyboardState[SDL_SCANCODE_SPACE] && (currTime - lastShotTime) > 200) { /// TODO: this is only for developement debugging
 		shoot();
 		(*Game::m_bullets.rbegin())->angle = angle;
+
 		lastShotTime = currTime;
 	}else
 
@@ -64,6 +72,13 @@ void Player::shoot() {
 	Bullet* newBullet = new Bullet;
 	newBullet->spawn(pos, InputManager::m_joyRightStickPol.angle, true, 10);
 	Game::m_bullets.push_back(newBullet);
+}
+
+void Player::draw() {
+	aimer.drect.x = pos.x - d.drect.w / 2;
+	aimer.drect.y = pos.y - d.drect.h / 2;
+	drawObject(aimer);
+	Entity::draw();
 }
 
 void Player::checkBounds() {}
