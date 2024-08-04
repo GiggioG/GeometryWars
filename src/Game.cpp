@@ -155,6 +155,7 @@ void Game::collideEnemies() {
 			m_player.health -= enm.health;
 			m_player.checkHealth();
 			enm.toDelete = true;
+			enm.health = 0;
 		}
 	}
 }

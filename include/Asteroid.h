@@ -7,6 +7,8 @@ public:
 	Asteroid();
 	~Asteroid();
 
+	int lifespan = 0;
+
 	static Asteroid model;
 	void init();
 	void update();

@@ -20,7 +20,7 @@ void SChaser::init() {
 	model_h = 100;
 	model_name = "Player_AI.bmp";
 	bullet_damage = 0;
-	model.range=600;
+	model.range=400;
 
 	model.d.drect.w = model_w;
 	model.d.drect.h = model_h;
@@ -41,6 +41,9 @@ void SChaser::update() {
 	
 	if (range*range<diff.x*diff.x+diff.y*diff.y) {
 		Entity::update();
+		if (health > 0) {
+			toDelete = false;
+		}
 		acc.x += cos(angle) * 0.4; /// TODO: config
 		acc.y -= sin(angle) * 0.4;
 	}

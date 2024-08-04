@@ -9,6 +9,7 @@ public:
 
 	 static Shooter model;
 
+	 Time lastShotTimeEnemy = 0;
 	 int range;
 	 int bullet_damage;
 

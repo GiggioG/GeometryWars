@@ -53,13 +53,13 @@ void Presenter::drawObject(SDL_Texture* texture)
 void Presenter::drawObject(const Drawable& drawable) {
 	float degrees = -drawable.angle * 180 / M_PI;
 	SDL_RenderCopyExF(m_mainRenderer, drawable.texture, &drawable.srect, &drawable.drect, degrees, NULL, drawable.flip);
-	SDL_RenderCopyExF(m_mainRenderer, redOutline, &drawable.srect, &drawable.drect, degrees, NULL, drawable.flip);
+	//SDL_RenderCopyExF(m_mainRenderer, redOutline, &drawable.srect, &drawable.drect, degrees, NULL, drawable.flip);
 }
 
 void Presenter::drawObject(const Drawable& drawable, float angle) {
 	float degrees = -angle * 180 / M_PI;
 	SDL_RenderCopyExF(m_mainRenderer, drawable.texture, &drawable.srect, &drawable.drect, degrees, NULL, drawable.flip);
-	SDL_RenderCopyExF(m_mainRenderer, redOutline, &drawable.srect, &drawable.drect, degrees, NULL, drawable.flip);
+	//SDL_RenderCopyExF(m_mainRenderer, redOutline, &drawable.srect, &drawable.drect, degrees, NULL, drawable.flip);
 }
 
 void Presenter::improveRenderer()

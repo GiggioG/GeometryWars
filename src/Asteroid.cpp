@@ -34,6 +34,10 @@ void Asteroid::init()
 void Asteroid::update() {
 	pos.x += cos(angle) * speed;
 	pos.y -= sin(angle) * speed;
+	lifespan = min(5000, lifespan + 1);
+	if (lifespan>500) {
+		checkBounds();
+	}
 }
 
 void Asteroid::spawn(const Asteroid* model) {

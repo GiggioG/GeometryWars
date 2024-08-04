@@ -31,10 +31,14 @@ void Player::update() {
 			angle = atan2(-diff.y, diff.x);
 			pos = newPos;
 		}
-	}else
+	}
+	else
 
+
+	m_aiming = false;
 	if (InputManager::m_joyRightStickPol.rad != 0) {
 		aimer.angle = InputManager::m_joyRightStickPol.angle;
+		m_aiming = true;
 	}
 	if (InputManager::m_joyLeftStickPol.rad != 0) {
 		angle = InputManager::m_joyLeftStickPol.angle;
@@ -45,20 +49,20 @@ void Player::update() {
 		acc.x += cos(angle) * speed;
 		acc.y -= sin(angle) * speed;
 	}
-	m_aiming = (InputManager::m_joyRightStickPol.rad != 0);
-
 	Time currTime = SDL_GetTicks();
 
 	if (!InputManager::m_joystickConnected && InputManager::m_keyboardState[SDL_SCANCODE_SPACE] && (currTime - lastShotTime) > 200) { /// TODO: this is only for developement debugging
 		shoot();
 		(*Game::m_bullets.rbegin())->angle = angle;
 
-		lastShotTime = currTime;
 	}else
 
 	if (InputManager::isJoyButtonPressed(JOYSTICK_BUTTON_RIGHT) && (currTime - lastShotTime) > 50) {
 		shoot();
 		lastShotTime = currTime;
+	}
+	if (currTime-lastShotTime < 50) {
+		m_aiming = true;
 	}
 	Entity::update();
 
@@ -75,9 +79,11 @@ void Player::shoot() {
 }
 
 void Player::draw() {
-	aimer.drect.x = pos.x - d.drect.w / 2;
-	aimer.drect.y = pos.y - d.drect.h / 2;
-	drawObject(aimer);
+	if (m_aiming) {
+		aimer.drect.x = pos.x - d.drect.w / 2;
+		aimer.drect.y = pos.y - d.drect.h / 2;
+		drawObject(aimer);
+	}
 	Entity::draw();
 }
 

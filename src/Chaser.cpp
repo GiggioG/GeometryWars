@@ -39,6 +39,9 @@ void Chaser::update() {
 	acc.y -= sin(angle) * 0.4;
 
 	Entity::update();
+	if (health > 0) {
+		toDelete = false;
+	}
 
 	/// TODO:
 	// (see: steering behaviours)

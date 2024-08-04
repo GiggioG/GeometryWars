@@ -33,4 +33,6 @@ void Enemy::spawn(const Enemy * m)
 }
 
 void Enemy::destroy() {}
-void Enemy::checkBounds() {}
+void Enemy::checkBounds() {
+	Entity::checkBounds();
+}
